@@ -1,0 +1,54 @@
+---
+name: FancyCheckbox
+menu: Checkbox
+---
+
+import { Playground, Props } from 'docz'
+import FancyCheckbox from 'components/Checkbox/FancyCheckbox'
+
+# FancyCheckbox
+
+<Props of={FancyCheckbox} />
+
+## Basic usage
+
+<Playground>
+  {() => {
+    class Test extends React.Component {
+      constructor (props) {
+        super(props)
+
+        this.state = { checked: false }
+      }
+
+      render() {
+        return (
+          <>
+            <FancyCheckbox id="chk1-1" label="체크박스" checked={this.state.checked} onChange={e => this.setState({ checked: e.target.checked })} />
+          </>
+        )
+      }
+    }
+    return (
+      <Test />
+    )
+  }}
+</Playground>
+
+### checked
+
+<Playground>
+  <FancyCheckbox id="chk2" label="체크박스" checked={true} onChange={e => console.log(e)} />
+</Playground>
+
+## Disable
+
+<Playground>
+  <FancyCheckbox id="chk4" label="비활성화된 체크박스" disabled={true} onChange={e => console.log(e)} />
+</Playground>
+
+### checked
+
+<Playground>
+  <FancyCheckbox id="chk5" label="비활성화된 체크박스" disabled={true} checked={true} onChange={e => console.log(e)} />
+</Playground>

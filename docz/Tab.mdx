@@ -1,0 +1,37 @@
+---
+name: Tab
+---
+
+import { Playground, Props } from 'docz'
+import Tab from 'components/Tab/Tab'
+
+# Tab
+
+<Props of={Tab} />
+
+## Basic usage
+
+<Playground>
+  {() => {
+    const Test = () => {
+      const [value, setValue] = React.useState('jp');
+
+      return (
+        <Tab
+          value={value}
+          onClick={setValue}
+          items={[
+            { value: "ko", title: "한국" },
+            { value: "jp", title: "일본" },
+            { value: "hk", title: "홍콩" },
+            { value: "mo", title: "마카오" },
+          ]}
+        />
+      );
+    }
+
+    return (
+      <Test />
+    )
+  }}
+</Playground>

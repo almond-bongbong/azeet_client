@@ -1,0 +1,56 @@
+---
+name: FancyRadio
+menu: Radio
+---
+
+import { Playground, Props } from 'docz'
+import OptionsGroup from 'components/OptionsGroup/OptionsGroup'
+import FancyRadio from 'components/Radio/FancyRadio'
+
+# FancyRadio
+
+<Props of={FancyRadio} />
+
+## Basic usage
+
+<Playground>
+  {() => {
+    class Test extends React.Component {
+      constructor (props) {
+        super(props)
+
+        this.state = { checkedIdx: 0 }
+      }
+
+      render() {
+        return (
+          <OptionsGroup>
+            <FancyRadio id="radio1-1" label="male" checked={this.state.checkedIdx === 0} onChange={e => e.target.checked && this.setState({ checkedIdx: 0 })} />
+            <FancyRadio id="radio1-2" label="female" checked={this.state.checkedIdx === 1} onChange={e => e.target.checked && this.setState({ checkedIdx: 1 })} />
+          </OptionsGroup>
+        )
+      }
+    }
+    return (
+      <Test />
+    )
+  }}
+</Playground>
+
+### checked
+
+<Playground>
+  <FancyRadio id="chk2" label="라디오 버튼" checked={true} onChange={e => console.log(e)} />
+</Playground>
+
+## Disable
+
+<Playground>
+  <FancyRadio id="chk4" label="비활성화된 라디오" disabled={true} onChange={e => console.log(e)} />
+</Playground>
+
+### checked
+
+<Playground>
+  <FancyRadio id="chk5" label="비활성화된 라디오" disabled={true} checked={true} onChange={e => console.log(e)} />
+</Playground>

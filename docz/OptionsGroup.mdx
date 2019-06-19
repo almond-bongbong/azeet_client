@@ -1,0 +1,70 @@
+---
+name: OptionsGroup
+---
+
+import { Playground, Props } from 'docz'
+import OptionsGroup from 'components/OptionsGroup/OptionsGroup'
+import Radio from 'components/Radio/Radio'
+
+# OptionsGroup
+
+<Props of={OptionsGroup} />
+
+## Type
+
+### inline (default)
+
+<Playground>
+  <OptionsGroup>
+    <Radio id="radio1" label="한국" checked={true} onChange={e => console.log(e)} />
+    <Radio id="radio2" label="미국" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio3" label="아르헨티나" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio4" label="사우디 아라비아" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio5" label="말레이시아" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio6" label="싱가포르" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio7" label="프랑스" checked={false} onChange={e => console.log(e)} />
+  </OptionsGroup>
+</Playground>
+
+### block
+
+<Playground>
+  <OptionsGroup type="block">
+    <Radio id="radio1" label="한국" checked={true} onChange={e => console.log(e)} />
+    <Radio id="radio2" label="미국" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio3" label="아르헨티나" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio4" label="사우디 아라비아" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio5" label="말레이시아" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio6" label="싱가포르" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio7" label="프랑스" checked={false} onChange={e => console.log(e)} />
+  </OptionsGroup>
+</Playground>
+
+### grid
+
+`grid` 타입의 경우 grid 속성을 통해 나눌 갯수를 지정 할 수 있습니다. (default 4)
+
+<Playground>
+  <OptionsGroup type="grid">
+    <Radio id="radio1" label="한국" checked={true} onChange={e => console.log(e)} />
+    <Radio id="radio2" label="미국" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio3" label="아르헨티나" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio4" label="사우디 아라비아" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio5" label="말레이시아" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio6" label="싱가포르" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio7" label="프랑스" checked={false} onChange={e => console.log(e)} />
+  </OptionsGroup>
+</Playground>
+
+<Playground>
+  <OptionsGroup type="grid" grid={5}>
+    <Radio id="radio1" label="한국" checked={true} onChange={e => console.log(e)} />
+    <Radio id="radio2" label="미국" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio3" label="아르헨티나" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio4" label="사우디 아라비아" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio5" label="말레이시아" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio6" label="싱가포르" checked={false} onChange={e => console.log(e)} />
+    <Radio id="radio7" label="프랑스" checked={false} onChange={e => console.log(e)} />
+  </OptionsGroup>
+</Playground>
+

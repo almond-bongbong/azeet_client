@@ -1,0 +1,93 @@
+{
+  "name": "create-next-example-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "docz:start": "docz dev",
+    "docz:build": "docz build",
+    "docz:deploy": "yarn run docz:build && cp ./.docz/dist/index.html ./.docz/dist/200.html && surge ./.docz/dist/ --domain react-compo-repo.surge.sh"
+  },
+  "dependencies": {
+    "@testing-library/react": "^8.0.1",
+    "babel-plugin-styled-components": "^1.10.1",
+    "immer": "^3.1.2",
+    "jest-dom": "^3.4.0",
+    "lodash": "^4.17.11",
+    "next": "^8.1.0",
+    "nprogress": "^0.2.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.1",
+    "redux-actions": "^2.6.5",
+    "redux-saga": "^1.0.2",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.3.1"
+  },
+  "devDependencies": {
+    "css-loader": "^2.1.0",
+    "style-loader": "^0.23.1",
+    "@types/jest": "^24.0.13",
+    "acorn": "^6.0.5",
+    "babel-eslint": "^10.0.2",
+    "docz": "latest",
+    "docz-theme-default": "^1.2.0",
+    "eslint": "5.3.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0",
+    "eslint-plugin-react-hooks": "^1.6.0"
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "plugins": [
+      "react-hooks"
+    ],
+    "env": {
+      "browser": true,
+      "jest": true
+    },
+    "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "error",
+      "react/jsx-filename-extension": 0,
+      "object-curly-newline": 0,
+      "no-param-reassign": [
+        "error",
+        {
+          "props": true,
+          "ignorePropertyModificationsFor": [
+            "draft"
+          ]
+        }
+      ],
+      "no-underscore-dangle": [
+        "error",
+        {
+          "allow": [
+            "__REDUX_DEVTOOLS_EXTENSION__",
+            "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"
+          ]
+        }
+      ]
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": [
+            "./"
+          ]
+        }
+      }
+    }
+  },
+  "resolutions": {
+    "docz/**/webpack": "4.28.4"
+  }
+}

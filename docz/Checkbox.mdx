@@ -1,0 +1,66 @@
+---
+name: BasicCheckbox
+menu: Checkbox
+---
+
+import { Playground, Props } from 'docz'
+import Checkbox from 'components/Checkbox/Checkbox'
+
+# BasicCheckbox
+
+<Props of={Checkbox} />
+
+## Basic usage
+
+<Playground>
+  {() => {
+    class Test extends React.Component {
+      constructor (props) {
+        super(props)
+
+        this.state = { checked: false }
+      }
+
+      render() {
+        return (
+          <>
+            <Checkbox id="chk1-1" label="체크박스" checked={this.state.checked} onChange={e => this.setState({ checked: e.target.checked })} />
+          </>
+        )
+      }
+    }
+    return (
+      <Test />
+    )
+  }}
+</Playground>
+
+### checked
+
+<Playground>
+  <Checkbox id="chk2" label="체크박스" checked={true} onChange={e => console.log(e)} />
+</Playground>
+
+### empty label
+
+<Playground>
+  <Checkbox id="chk3" onChange={e => console.log(e)} />
+</Playground>
+
+## Disable
+
+<Playground>
+  <Checkbox id="chk4" label="비활성화된 체크박스" disabled={true} onChange={e => console.log(e)} />
+</Playground>
+
+### checked
+
+<Playground>
+  <Checkbox id="chk5" label="비활성화된 체크박스" disabled={true} checked={true} onChange={e => console.log(e)} />
+</Playground>
+
+### empty label
+
+<Playground>
+  <Checkbox id="chk6" disabled={true} onChange={e => console.log(e)} />
+</Playground>

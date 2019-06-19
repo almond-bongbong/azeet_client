@@ -1,0 +1,90 @@
+---
+name: useDetectScrollEnd
+menu: CustomHooks
+---
+
+import { Playground } from 'docz'
+import { useDetectScrollEnd } from 'hooks'
+
+# useDetectScrollEnd
+
+- parameter 를 이용해 어느 시점에서 end 이벤트를 발생 시킬지 설정할 수 있습니다. 기본 값은 0.9 이고 0 ~ 1 사이의 범위를 가집니다.
+
+## Basic Usage
+
+<Playground>
+  {() => {
+    const Test = () => {
+      const isScrollEnd = useDetectScrollEnd();
+
+      console.log('end?', isScrollEnd);
+
+      return (
+        <div>scroll down 👇</div>
+      )
+    }
+
+    return (
+      <Test />
+    )
+  }}
+</Playground>
+
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+
+```
+end 👍 check console log
+```

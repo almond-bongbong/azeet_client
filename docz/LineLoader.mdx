@@ -1,0 +1,109 @@
+---
+name: LineLoader
+menu: Loader
+---
+
+import { Playground, Props } from 'docz'
+import LineLoader from 'components/Loader/LineLoader'
+import Button from 'components/Button/Button'
+
+# LineLoader
+
+<Props of={LineLoader} />
+
+해당 컴포넌트는 global에 다음과 같은 style이 적용되어 있어야 작동합니다.
+```css
+const nprogressSpinner = keyframes`
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: #29d;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+  opacity: 1.0;
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 15px;
+  right: 15px;
+}
+
+#nprogress .spinner-icon {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  border: solid 2px transparent;
+  border-top-color: #29d;
+  border-left-color: #29d;
+  border-radius: 50%;
+  animation: ${nprogressSpinner} 400ms linear infinite;
+}
+
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+  position: absolute;
+}
+```
+
+## Basic Usage
+
+<Playground>
+  {() => {
+    class Test extends React.Component {
+      constructor (props) {
+        super(props)
+
+        this.state = { show: false }
+        this.startLoad = this.startLoad.bind(this)
+      }
+
+      startLoad() {
+        this.setState({ show: true })
+
+        setTimeout(() => {
+          this.setState({ show: false })
+        }, 1500)
+      }
+
+      render() {
+        return (
+          <>
+            {this.state.show && <LineLoader />}
+            <Button onClick={this.startLoad}>action</Button>
+          </>
+        )
+      }
+    }
+    return (
+        <Test />
+    )
+  }}
+</Playground>

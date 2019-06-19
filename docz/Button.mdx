@@ -1,0 +1,96 @@
+---
+name: Button
+---
+
+import { Playground, Props } from 'docz'
+import Button from 'components/Button/Button'
+
+# Button
+
+<Props of={Button} />
+
+## basic usage
+
+<Playground>
+  <Button>Button</Button>
+</Playground>
+
+## inline
+
+### true
+
+<Playground>
+  <Button theme="red">버튼</Button>
+</Playground>
+
+### false
+
+<Playground>
+  <Button theme="red" inline={false}>버튼</Button>
+</Playground>
+
+## theme
+
+### white
+
+<Playground>
+  <Button theme="white">취소</Button>
+</Playground>
+
+### gray
+
+<Playground>
+  <Button theme="gray">취소</Button>
+</Playground>
+
+### red
+
+<Playground>
+  <Button theme="red">버튼</Button>
+</Playground>
+
+### blue
+
+<Playground>
+  <Button theme="blue">버튼</Button>
+</Playground>
+
+## width
+
+<Playground>
+  <Button width={120} theme="white">작은거</Button>
+</Playground>
+
+## height
+
+### 30
+
+<Playground>
+  <Button height={30} theme="white">작은거</Button>
+</Playground>
+
+### 40
+
+<Playground>
+  <Button height={40} theme="white">보통</Button>
+</Playground>
+
+### 50
+
+<Playground>
+  <Button height={50} theme="white">큰거</Button>
+</Playground>
+
+## loading
+
+<Playground>
+  <Button loading={true}>로딩</Button>
+</Playground>
+
+## event
+
+### onClick(event)
+
+<Playground>
+  <Button theme="white" onClick={e => alert('클릭')}>클릭!</Button>
+</Playground>

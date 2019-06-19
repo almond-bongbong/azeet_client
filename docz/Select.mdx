@@ -1,0 +1,98 @@
+---
+name: Select
+---
+
+import { Playground, Props } from 'docz'
+import Select from 'components/Select/Select'
+import Option from 'components/Select/Option'
+
+# Select
+
+<Props of={Select} />
+
+## Basic usage
+
+<Playground>
+  {() => {
+    const Test = () => {
+      const [value, setValue] = React.useState(0);
+
+      return (
+        <Select value={value} onChange={e => setValue(e.target.value)}>
+          <Option text="서울" value={0} />
+          <Option text="경기도" value={1} />
+          <Option text="부산" value={2} />
+          <Option text="인천" value={3} />
+          <Option text="제주도" value={4} />
+        </Select>
+      )
+    }
+    return (
+      <Test />
+    )
+  }}
+</Playground>
+
+## Theme
+
+### line
+
+<Playground>
+  <Select theme="line" value={0} onChange={e => console.log(e)}>
+    <Option text="서울" value={0} />
+    <Option text="경기도" value={1} />
+    <Option text="부산" value={2} />
+    <Option text="인천" value={3} />
+    <Option text="제주도" value={4} />
+  </Select>
+</Playground>
+
+## Inline
+
+<Playground>
+  <Select inline={true} value={0} onChange={e => console.log(e)}>
+    <Option text="서울" value={0} />
+    <Option text="경기도" value={1} />
+    <Option text="부산" value={2} />
+    <Option text="인천" value={3} />
+    <Option text="제주도" value={4} />
+  </Select>
+</Playground>
+
+## Size
+
+### 30
+
+<Playground>
+  <Select size={30} value={0} onChange={e => console.log(e)}>
+    <Option text="서울" value={0} />
+    <Option text="경기도" value={1} />
+    <Option text="부산" value={2} />
+    <Option text="인천" value={3} />
+    <Option text="제주도" value={4} />
+  </Select>
+</Playground>
+
+### 40 (default)
+
+<Playground>
+  <Select size={40} value={0} onChange={e => console.log(e)}>
+    <Option text="서울" value={0} />
+    <Option text="경기도" value={1} />
+    <Option text="부산" value={2} />
+    <Option text="인천" value={3} />
+    <Option text="제주도" value={4} />
+  </Select>
+</Playground>
+
+### 50
+
+<Playground>
+  <Select size={50} value={0} onChange={e => console.log(e)}>
+    <Option text="서울" value={0} />
+    <Option text="경기도" value={1} />
+    <Option text="부산" value={2} />
+    <Option text="인천" value={3} />
+    <Option text="제주도" value={4} />
+  </Select>
+</Playground>

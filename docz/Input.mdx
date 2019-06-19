@@ -1,0 +1,72 @@
+---
+name: Input
+---
+
+import { Playground, Props } from 'docz'
+import Input from 'components/Input/Input'
+
+# Input
+
+<Props of={Input} />
+
+## Type
+
+### text
+
+<Playground>
+  <Input type="text" onChange={e => console.log(e)} />
+</Playground>
+
+### password
+
+<Playground>
+  <Input type="password" onChange={e => console.log(e)} />
+</Playground>
+
+## Placeholder
+
+<Playground>
+  <Input type="text" placeholder="이름을 입력하세요." onChange={e => console.log(e)} />
+</Playground>
+
+## Theme
+
+### line
+
+<Playground>
+  <Input type="text" placeholder="이름을 입력하세요." theme="line" onChange={e => console.log(e)} />
+</Playground>
+
+## Size
+
+### 30
+
+<Playground>
+  <Input type="text" size={30} onChange={e => console.log(e)} />
+</Playground>
+
+### 40 (default)
+
+<Playground>
+  <Input type="text" size={40} onChange={e => console.log(e)} />
+</Playground>
+
+### 50
+
+<Playground>
+  <Input type="text" size={50} onChange={e => console.log(e)} />
+</Playground>
+
+## Validation
+
+### warning
+
+<Playground>
+  <Input type="text" status="warning" warningMessage="다시 한번 확인해 주세요." onChange={e => console.log(e)} />
+</Playground>
+
+### correct
+
+<Playground>
+  <Input type="text" status="correct" onChange={e => console.log(e)} />
+</Playground>
