@@ -1,13 +1,12 @@
-const withCSS = require('@zeit/next-css');
+/* eslint-disable */
 
-module.exports = withCSS({
+module.exports = {
   webpack: (config) => {
-    // Fixes npm packages that depend on `fs` module
-    // eslint-disable-next-line no-param-reassign
+    config.resolve.modules.push(path.resolve('./'));
     config.node = {
       fs: 'empty',
     };
 
     return config;
   },
-});
+};

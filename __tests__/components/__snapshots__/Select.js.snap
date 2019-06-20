@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select matches snapshot 1`] = `
+<div>
+  <div
+    class="Select__BasicSelectStyle-sc-1khaxbr-0 bdiVvy"
+    size="40"
+  >
+    <select>
+      <option
+        value="0"
+      >
+        첫번째
+      </option>
+      <option
+        value="1"
+      >
+        두번째
+      </option>
+      <option
+        value="2"
+      >
+        세번째
+      </option>
+    </select>
+  </div>
+</div>
+`;

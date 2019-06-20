@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button matches snapshot 1`] = `
+<div>
+  <div
+    class="Button__BasicButtonStyle-f73wfv-0 jSeGVY"
+    data-testid="button-wrap"
+    height="40"
+    width="auto"
+  >
+    <button
+      type="button"
+    >
+      <span>
+        버튼
+      </span>
+    </button>
+  </div>
+</div>
+`;

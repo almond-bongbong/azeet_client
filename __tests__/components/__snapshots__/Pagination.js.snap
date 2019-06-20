@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination matches snapshot 1`] = `
+<div>
+  <div
+    class="Pagination__PaginationStyle-sc-1a60n7z-0 kKVOrJ"
+  >
+    <button
+      class="arrow"
+      title="첫 페이지로 이동"
+      type="button"
+    >
+      <i
+        class="fas fa-angle-double-left"
+      />
+    </button>
+    <button
+      class="arrow"
+      title="1 페이지로 이동"
+      type="button"
+    >
+      <i
+        class="fas fa-angle-left"
+      />
+    </button>
+    <span
+      class="numbers"
+    >
+      <button
+        class="num Pagination__NumberStyle-sc-1a60n7z-1 cxuSWD"
+        type="button"
+      >
+        <span>
+          1
+        </span>
+      </button>
+      <button
+        class="num Pagination__NumberStyle-sc-1a60n7z-1 VFjQJ"
+        type="button"
+      >
+        <span>
+          2
+        </span>
+      </button>
+      <button
+        class="num Pagination__NumberStyle-sc-1a60n7z-1 VFjQJ"
+        type="button"
+      >
+        <span>
+          3
+        </span>
+      </button>
+    </span>
+    <button
+      class="arrow"
+      title="3 페이지로 이동"
+      type="button"
+    >
+      <i
+        class="fas fa-angle-right"
+      />
+    </button>
+    <button
+      class="arrow"
+      title="마지막 페이지로 이동"
+      type="button"
+    >
+      <i
+        class="fas fa-angle-double-right"
+      />
+    </button>
+  </div>
+</div>
+`;

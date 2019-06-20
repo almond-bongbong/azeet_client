@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio matches snapshot 1`] = `
+<div>
+  <div
+    class="Radio__BasicRadioStyle-sc-1ewdkdh-0 bQpYmY"
+    label=""
+  >
+    <label
+      for="radio_0"
+    >
+      <input
+        id="radio_0"
+        type="radio"
+        value=""
+      />
+      <span />
+    </label>
+  </div>
+</div>
+`;

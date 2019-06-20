@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select matches snapshot 1`] = `
+<div>
+  <div
+    class="Tab__TabStyle-sc-1x5bvvv-0 ezcYwx"
+  >
+    <div
+      class="tab-nav"
+    >
+      <button
+        class="nav-item active"
+        type="button"
+      >
+        <span>
+          한국
+        </span>
+      </button>
+      <button
+        class="nav-item "
+        type="button"
+      >
+        <span>
+          일본
+        </span>
+      </button>
+      <button
+        class="nav-item "
+        type="button"
+      >
+        <span>
+          홍콩
+        </span>
+      </button>
+      <button
+        class="nav-item "
+        type="button"
+      >
+        <span>
+          마카오
+        </span>
+      </button>
+    </div>
+    <div
+      class="Tab__BarStyle-sc-1x5bvvv-1 fmgpFN"
+      width="0"
+    />
+  </div>
+</div>
+`;

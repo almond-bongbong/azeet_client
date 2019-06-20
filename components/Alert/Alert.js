@@ -44,7 +44,7 @@ const Alert = () => {
         <div className="message">
           {newlineText(message)}
         </div>
-        <Button inline={false} onClick={window.callbackStore.alert}>확인</Button>
+        <Button inline={false} onClick={window.callbackStore.alert} text="확인" />
       </div>
     </AlertStyle>
   );

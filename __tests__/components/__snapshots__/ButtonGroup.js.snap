@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroup matches snapshot 1`] = `
+<div>
+  <div
+    class="ButtonGroup__ButtonGroupStyle-sc-1gi5cb3-0 fsqhck"
+  >
+    button
+  </div>
+</div>
+`;
