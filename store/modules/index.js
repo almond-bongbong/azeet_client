@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import alert from './alert';
+import alertModule from './alert';
+import confirmModule from './confirm';
 
 export default combineReducers({
-  alert,
+  alert: alertModule,
+  confirm: confirmModule,
 });

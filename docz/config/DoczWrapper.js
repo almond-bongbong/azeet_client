@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import GlobalStyle from 'style/GlobalStyle';
 import store from 'store/configure';
 import Alert from 'components/Alert';
+import Confirm from 'components/Confirm';
 import 'static/5459466d0f';
 
 const DoczWrapper = ({ children }) => (
@@ -12,6 +13,7 @@ const DoczWrapper = ({ children }) => (
     {children}
 
     <Alert />
+    <Confirm />
   </Provider>
 );
 
