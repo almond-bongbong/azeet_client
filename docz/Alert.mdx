@@ -33,6 +33,7 @@ dispatch(alert('안녕하세요!!')).then(() => console.log('close'))
       const dispatch = useDispatch();
       const openAlert = () => {
         dispatch(alert('안녕하세요!!')).then(() => console.log('close'));
+        dispatch(alert('안녕하세요!!')).then(() => console.log('close'));
       }
 
       return <Button onClick={openAlert}>alert!</Button>

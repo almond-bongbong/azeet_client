@@ -1,0 +1,169 @@
+---
+name: BasicPopup
+menu: Popup
+---
+
+import { useState, useRef } from 'react'
+import { Playground, Props } from 'docz'
+import Popup from 'components/Popup/Popup'
+import Button from 'components/Button/Button'
+import ButtonGroup from 'components/ButtonGroup/ButtonGroup'
+
+# Popup
+
+<Props of={Popup} />
+
+## Basic usage
+`onClickDim`, `keyPressESC` prop을 통해서 dim 클릭, esc 동작시 이벤트를 부여할 수 있습니다.
+<Playground>
+  {() => {
+    const Test = () => {
+      const [popupShow, setPopupShow] = useState(false);
+      const openPopup = () => setPopupShow(true);
+      const closePopup = () => setPopupShow(false);
+
+      return (
+        <>
+          <Popup show={popupShow} onClickDim={closePopup} keyPressESC={closePopup}>
+            <h3>hello popup</h3>
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <Button onClick={closePopup} text="close" />
+          </Popup>
+          <Button onClick={openPopup} text="popup" />
+        </>
+      );
+    }
+    return <Test />
+  }}
+</Playground>
+
+## Double Popup
+- 팝업 내부에 팝업 사용이 가능합니다.
+- 단 keyPressESC와 함께 사용할 경우 별도의 처리가 필요합니다.
+  ```
+  const closePopup = () => {
+    if (!innerPopupShow) setPopupShow(false);
+  };
+  ```
+
+<Playground>
+  {() => {
+    const Test = () => {
+      const [popupShow, setPopupShow] = useState(false);
+      const [innerPopupShow, setInnerPopupShow] = useState(false);
+      const openPopup = () => setPopupShow(true);
+      const closePopup = () => {
+        if (!innerPopupShow) setPopupShow(false);
+      };
+      const openInnerPopup = () => setInnerPopupShow(true);
+      const closeInnerPopup = () => setInnerPopupShow(false);
+
+      return (
+        <>
+          <Popup show={popupShow} keyPressESC={closePopup}>
+            <h3>hello popup</h3>
+              <p>Lorem ipsum popup hello</p>
+            <br />
+            <ButtonGroup>
+              <Button onClick={openInnerPopup} text="new popup" />
+              <Button onClick={closePopup} text="close" />
+            </ButtonGroup>
+
+            <Popup show={innerPopupShow} keyPressESC={closeInnerPopup}>
+              <h3>inner popup</h3>
+              <br />
+              <Button onClick={closeInnerPopup} text="close" />
+            </Popup>
+          </Popup>
+          <Button onClick={openPopup} text="popup" />
+        </>
+      );
+    }
+    return <Test />
+  }}
+</Playground>
+
+## Long Content
+컨텐츠의 내용이 길 경우 자동으로 scroll이 생성됩니다.
+
+<Playground>
+  {() => {
+    const Test = () => {
+      const [popupShow, setPopupShow] = useState(false);
+      const openPopup = () => setPopupShow(true);
+      const closePopup = () => setPopupShow(false);
+
+      return (
+        <>
+          <Popup show={popupShow} keyPressESC={closePopup}>
+            <h3>hello popup</h3>
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <p>Lorem ipsum popup hello</p>
+            <br />
+            <Button onClick={closePopup} text="close" />
+          </Popup>
+          <Button onClick={openPopup} text="popup" />
+        </>
+      );
+    }
+    return <Test />
+  }}
+</Playground>

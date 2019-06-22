@@ -74,4 +74,14 @@ export default createGlobalStyle`
   .nprogress-custom-parent #nprogress .bar {
       position: absolute;
   }
+  
+  #popup_container {
+    position: relative;
+    z-index: 10000;
+  }
+  
+  #popup_container > div {
+    position: relative;
+    z-index: 1000;
+  }
 `;
