@@ -76,6 +76,7 @@ const Popup = ({ show, children, onClickDim, keyPressESC }) => {
   useEffect(() => {
     const handleKeyPress = e => e.keyCode === 27 && keyPressESC();
     if (keyPressESC) document.addEventListener('keydown', handleKeyPress, false);
+
     return () => document.removeEventListener('keydown', handleKeyPress, false);
   }, [keyPressESC]);
 
@@ -85,14 +86,12 @@ const Popup = ({ show, children, onClickDim, keyPressESC }) => {
       const height = contentRef.current.clientHeight;
       const margin = 50;
 
-      if (windowHeight - margin < height) {
-        setHasScroll(true);
-      }
+      if (windowHeight - margin < height) setHasScroll(true);
     }
   }, [show]);
 
   const handleClickDim = useCallback((e) => {
-    if (e.target.classList.contains('mask')) onClickDim();
+    if (e.target.classList.contains('mask') && onClickDim) onClickDim();
   }, [onClickDim]);
 
   return createPortal(
