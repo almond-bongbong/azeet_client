@@ -1,0 +1,38 @@
+---
+name: ImageInput
+---
+
+import { useState } from 'react';
+import { Playground } from 'docz'
+import ImageInput from 'components/ImageInput/ImageInput'
+
+# ImageInput
+
+## Basic usage
+
+<Playground>
+  {() => {
+    const Test = () => {
+      const [images, setImages] = useState([]);
+      const handleImages = (images) => {
+        // console.log(images.length, images);
+        setImages(images);
+      };
+
+      return (
+        <>
+          <ImageInput onChange={handleImages} />
+          <br /><hr /><br />
+          {images.map(({ file, meta }) => (
+            <div key={meta.DateTime}>
+              <img src={URL.createObjectURL(file)} />
+              <pre>{JSON.stringify(meta, null, 4)}</pre>
+            </div>
+          ))}
+        </>
+      );
+    }
+
+    return <Test />;
+  }}
+</Playground>

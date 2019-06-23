@@ -107,7 +107,7 @@ const Popup = ({ show, children, onClickDim, keyPressESC }) => {
               className="mask"
               role="presentation"
               onClick={handleClickDim}
-              title="닫기"
+              title="팝업닫기"
             >
               <div className="content" ref={contentRef}>
                 {children}
