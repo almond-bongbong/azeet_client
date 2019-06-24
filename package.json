@@ -9,7 +9,7 @@
     "test": "jest --watchAll --verbose --modulePaths=./",
     "docz:start": "docz dev",
     "docz:build": "docz build",
-    "docz:deploy": "yarn run docz:build && cp ./.docz/dist/index.html ./.docz/dist/200.html && surge ./.docz/dist/ --domain react-compo-repo.surge.sh"
+    "docz:deploy": "yarn run docz:build && cp ./.docz/dist/index.html ./.docz/dist/200.html && surge ./.docz/dist/"
   },
   "dependencies": {
     "@testing-library/react": "^8.0.1",

@@ -1,5 +1,6 @@
 ---
 name: ImageInput
+menu: Image
 ---
 
 import { useState } from 'react';
@@ -22,10 +23,10 @@ import ImageInput from 'components/ImageInput/ImageInput'
       return (
         <>
           <ImageInput onChange={handleImages} />
-          <br /><hr /><br />
+          <br /><br />
           {images.map(({ file, meta }) => (
             <div key={meta.DateTime}>
-              <img src={URL.createObjectURL(file)} />
+              <img src={URL.createObjectURL(file)} style={{ width: '100%' }} />
               <pre>{JSON.stringify(meta, null, 4)}</pre>
             </div>
           ))}

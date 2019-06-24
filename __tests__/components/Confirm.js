@@ -31,7 +31,7 @@ describe('Confirm', () => {
 
     const cancelButton = getByText('취소');
     fireEvent.click(cancelButton);
-    expect(queryByText('really?')).toBeNull();
+    await wait(() => expect(queryByText('really?')).toBeNull());
     await wait(() => expect(onResult).toBeCalledWith(false));
   });
 
@@ -42,7 +42,7 @@ describe('Confirm', () => {
 
     const confirmButton = getByText('확인');
     fireEvent.click(confirmButton);
-    expect(queryByText('really?')).toBeNull();
+    await wait(() => expect(queryByText('really?')).toBeNull());
     await wait(() => expect(onResult).toBeCalledWith(true));
   });
 });

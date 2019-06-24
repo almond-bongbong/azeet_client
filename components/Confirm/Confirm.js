@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import styled from 'styled-components';
 import Button from 'components/Button/Button';
 import ButtonGroup from 'components/ButtonGroup/ButtonGroup';
@@ -15,6 +16,21 @@ const ConfirmStyle = styled.div`
   z-index: 10000;
   background-color: rgba(0,0,0,0.4);
   animation: ${fadeIn} .2s ease-in-out;
+  
+  &.confirm-enter {
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  &.confirm-enter-active {
+    opacity: 1;
+  }
+  &.confirm-leave {
+    opacity: 1;
+    transition: opacity .3s;
+  }
+  &.confirm-leave-active {
+    opacity: 0;
+  }
   
   & .content {
     position: absolute;
@@ -47,18 +63,26 @@ const Confirm = () => {
 
   const { show, message } = useSelector(state => state.confirm);
 
-  return show && (
-    <ConfirmStyle>
-      <div className="content">
-        <div className="message">
-          {newlineText(message)}
-        </div>
-        <ButtonGroup>
-          <Button inline={false} onClick={handleCancel} text="취소" />
-          <Button inline={false} onClick={handleConfirm} theme="red" text="확인" />
-        </ButtonGroup>
-      </div>
-    </ConfirmStyle>
+  return (
+    <ReactCSSTransitionGroup
+      transitionName="confirm"
+      transitionEnterTimeout={300}
+      transitionLeaveTimeout={300}
+    >
+      {show && (
+        <ConfirmStyle>
+          <div className="content">
+            <div className="message">
+              {newlineText(message)}
+            </div>
+            <ButtonGroup>
+              <Button inline={false} onClick={handleCancel} text="취소" />
+              <Button inline={false} onClick={handleConfirm} theme="red" text="확인" />
+            </ButtonGroup>
+          </div>
+        </ConfirmStyle>
+      )}
+    </ReactCSSTransitionGroup>
   );
 };
 

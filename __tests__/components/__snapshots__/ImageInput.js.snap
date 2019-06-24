@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button matches snapshot 1`] = `
+<div>
+  <div
+    class="ImageInput__ImageInputStyle-sc-1r0wdzt-0 ekuFZB"
+  >
+    <label
+      for="image_input"
+    >
+      <input
+        accept="image/*"
+        id="image_input"
+        multiple=""
+        title="이미지 업로드"
+        type="file"
+      />
+      <span>
+        이미지 선택
+      </span>
+    </label>
+  </div>
+</div>
+`;

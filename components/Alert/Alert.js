@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import styled from 'styled-components';
 import Button from 'components/Button/Button';
 import newlineText from 'lib/newlineText';
@@ -14,6 +15,21 @@ const AlertStyle = styled.div`
   z-index: 10000;
   background-color: rgba(0,0,0,0.4);
   animation: ${fadeIn} .2s ease-in-out;
+  
+  &.alert-enter {
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  &.alert-enter-active {
+    opacity: 1;
+  }
+  &.alert-leave {
+    opacity: 1;
+    transition: opacity .3s;
+  }
+  &.alert-leave-active {
+    opacity: 0;
+  }
   
   & .content {
     position: absolute;
@@ -38,15 +54,23 @@ const AlertStyle = styled.div`
 const Alert = () => {
   const { show, message } = useSelector(state => state.alert);
 
-  return show && (
-    <AlertStyle>
-      <div className="content">
-        <div className="message">
-          {newlineText(message)}
-        </div>
-        <Button inline={false} onClick={window.callbackStore.alert} text="확인" />
-      </div>
-    </AlertStyle>
+  return (
+    <ReactCSSTransitionGroup
+      transitionName="alert"
+      transitionEnterTimeout={300}
+      transitionLeaveTimeout={300}
+    >
+      {show && (
+        <AlertStyle>
+          <div className="content">
+            <div className="message">
+              {newlineText(message)}
+            </div>
+            <Button inline={false} onClick={window.callbackStore.alert} text="확인"/>
+          </div>
+        </AlertStyle>
+      )}
+    </ReactCSSTransitionGroup>
   );
 };
 

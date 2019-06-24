@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import loadImage from 'blueimp-load-image';
 import styled from 'styled-components';
-import { hidden } from 'style/mixin';
+import { hidden, blue } from 'style/mixin';
 
 const ImageInputStyle = styled.div`
   & input {
@@ -10,7 +10,20 @@ const ImageInputStyle = styled.div`
   }
   
   & label {
-    display: block;
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 2px;
+    background-color: ${blue};
+    color: #fff;
+    cursor: pointer;
+    transition: box-shadow .2s;
+    
+    &:hover {
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.2)
+    }
+    &:active {
+      box-shadow: none;
+    }
   }
 `;
 
@@ -47,6 +60,7 @@ const ImageInput = ({ id, onChange }) => {
           onChange={handleImage}
           multiple
           accept="image/*"
+          title="이미지 업로드"
         />
         <span>이미지 선택</span>
       </label>

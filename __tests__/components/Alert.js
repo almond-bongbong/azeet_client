@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent } from '@testing-library/react';
+import { fireEvent, wait } from '@testing-library/react';
 import renderWithRedux from 'utils/renderWithRedux';
 import Alert from 'components/Alert/Alert';
 import Button from 'components/Button/Button';
@@ -11,7 +11,7 @@ describe('Alert', () => {
     expect(utils.container).toMatchSnapshot();
   });
 
-  it('calls alert and close', () => {
+  it('calls alert and close', async () => {
     const { getByText, queryByText, store } = renderWithRedux(
       <>
         <Button text="click" onClick={() => store.dispatch(alert('alert'))} />
@@ -25,6 +25,6 @@ describe('Alert', () => {
 
     const closeButton = getByText('확인');
     fireEvent.click(closeButton);
-    expect(queryByText('alert')).toBeNull();
+    await wait(() => expect(queryByText('alert')).toBeNull());
   });
 });
