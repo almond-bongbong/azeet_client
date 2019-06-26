@@ -5,7 +5,7 @@ import GlobalStyle from 'style/GlobalStyle';
 import store from 'store/configure';
 import Alert from 'components/Alert';
 import Confirm from 'components/Confirm';
-import 'static/5459466d0f';
+import Toast from 'components/Toast';
 
 const DoczWrapper = ({ children }) => (
   <Provider store={store}>
@@ -14,6 +14,7 @@ const DoczWrapper = ({ children }) => (
 
     <Alert />
     <Confirm />
+    <Toast />
   </Provider>
 );
 

@@ -9,11 +9,10 @@ export const types = {
 export const alertActions = {
   open: createAction(types.OPEN),
   close: createAction(types.CLOSE),
+  alert: message => dispatch => new Promise((resolve) => {
+    dispatch(alertActions.open({ message, resolve }));
+  }),
 };
-
-export const alert = message => dispatch => new Promise((resolve) => {
-  dispatch(alertActions.open({ message, resolve }));
-});
 
 const initialState = {
   show: false,

@@ -40,7 +40,7 @@ export default createGlobalStyle`
   
   body {
       max-width: 100vw;
-      color: #888;
+      color: #777;
       font-size: 15px;
       line-height: 1.5;
       font-family: ${fontFamily};
@@ -82,7 +82,7 @@ export default createGlobalStyle`
   input[type="checkbox"] + label,
   input[type="radio"] + label{
       border-radius: 0;
-      color: #888;
+      color: #777;
       font: 14px/1.5 ${fontFamily};
       vertical-align: middle;
   }

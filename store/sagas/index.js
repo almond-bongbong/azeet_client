@@ -1,10 +1,12 @@
-import { all, call } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
 import alert from './alert';
 import confirm from './confirm';
+import toast from './toast';
 
 export default function* rootSaga() {
   yield all([
-    call(alert),
-    call(confirm),
+    fork(alert),
+    fork(confirm),
+    fork(toast),
   ]);
 }

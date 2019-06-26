@@ -27,7 +27,7 @@ class MyApp extends App {
           <link rel="shortcut icon" href="/static/favicon.ico" />
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
           <meta name="theme-color" content="#ffffff" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" />
           <GlobalStyle />
         </Head>
         <Header />

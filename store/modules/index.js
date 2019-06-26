@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import alertModule from './alert';
-import confirmModule from './confirm';
+import alert from './alert';
+import confirm from './confirm';
+import toast from './toast';
 
 export default combineReducers({
-  alert: alertModule,
-  confirm: confirmModule,
+  alert,
+  confirm,
+  toast,
 });

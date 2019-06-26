@@ -9,11 +9,10 @@ export const types = {
 export const confirmActions = {
   open: createAction(types.OPEN),
   close: createAction(types.CLOSE),
+  confirm: message => dispatch => new Promise((resolve) => {
+    dispatch(confirmActions.open({ message, resolve }));
+  }),
 };
-
-export const confirm = message => dispatch => new Promise((resolve) => {
-  dispatch(confirmActions.open({ message, resolve }));
-});
 
 const initialState = {
   show: false,
