@@ -1,6 +1,6 @@
 import { eventChannel, END } from 'redux-saga';
 import { all, fork, call, put, take, takeLatest } from 'redux-saga/effects';
-import { alertActions, types } from 'store/modules/alert';
+import { alertActions, alertTypes } from 'store/modules/alert';
 
 const alertChannel = () => eventChannel((emit) => {
   window.callbackStore = { ...window.callbackStore, alert: () => emit(true) };
@@ -15,7 +15,7 @@ function* alert({ payload }) {
 }
 
 function* watchAlert() {
-  yield takeLatest(types.OPEN, alert);
+  yield takeLatest(alertTypes.OPEN, alert);
 }
 
 export default function* alertSaga() {

@@ -3,14 +3,14 @@ import { fireEvent, wait } from '@testing-library/react';
 import renderWithRedux from 'utils/renderWithRedux';
 import Confirm from 'components/Confirm/Confirm';
 import Button from 'components/Button/Button';
-import { confirm } from 'store/modules/confirm';
+import { confirmActions } from 'store/modules/confirm';
 
 describe('Confirm', () => {
   const setup = () => {
     const onResult = jest.fn();
     const utils = renderWithRedux(
       <>
-        <Button text="click" onClick={() => utils.store.dispatch(confirm('really?')).then(onResult)} />
+        <Button text="click" onClick={() => utils.store.dispatch(confirmActions.confirm('really?')).then(onResult)} />
         <Confirm />
       </>,
     );

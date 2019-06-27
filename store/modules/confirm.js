@@ -1,14 +1,14 @@
 import { handleActions, createAction } from 'redux-actions';
 import produce from 'immer';
 
-export const types = {
+export const confirmTypes = {
   OPEN: 'confirm/OPEN',
   CLOSE: 'confirm/CLOSE',
 };
 
 export const confirmActions = {
-  open: createAction(types.OPEN),
-  close: createAction(types.CLOSE),
+  open: createAction(confirmTypes.OPEN),
+  close: createAction(confirmTypes.CLOSE),
   confirm: message => dispatch => new Promise((resolve) => {
     dispatch(confirmActions.open({ message, resolve }));
   }),
@@ -20,11 +20,11 @@ const initialState = {
 };
 
 export default handleActions({
-  [types.OPEN]: (state, { payload }) => produce(state, (draft) => {
+  [confirmTypes.OPEN]: (state, { payload }) => produce(state, (draft) => {
     draft.show = true;
     draft.message = payload.message;
   }),
-  [types.CLOSE]: state => produce(state, (draft) => {
+  [confirmTypes.CLOSE]: state => produce(state, (draft) => {
     draft.show = false;
   }),
 }, initialState);

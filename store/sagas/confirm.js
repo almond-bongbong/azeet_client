@@ -1,6 +1,6 @@
 import { eventChannel, END } from 'redux-saga';
 import { all, fork, call, put, take, takeLatest } from 'redux-saga/effects';
-import { confirmActions, types } from 'store/modules/confirm';
+import { confirmActions, confirmTypes } from 'store/modules/confirm';
 
 const confirmChannel = () => eventChannel((emit) => {
   window.callbackStore = { ...window.callbackStore, confirm: isConfirmed => emit(isConfirmed) };
@@ -15,7 +15,7 @@ function* confirm({ payload }) {
 }
 
 function* watchConfirm() {
-  yield takeLatest(types.OPEN, confirm);
+  yield takeLatest(confirmTypes.OPEN, confirm);
 }
 
 export default function* confirmSaga() {

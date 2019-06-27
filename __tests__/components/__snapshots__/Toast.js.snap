@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast matches snapshot 1`] = `
+<div>
+  <div
+    class="Toast__ToastStyle-sc-8jh1qw-0 bWbJcC"
+  >
+    <span />
+  </div>
+</div>
+`;

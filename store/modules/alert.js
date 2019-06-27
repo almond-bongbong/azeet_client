@@ -1,14 +1,14 @@
 import { handleActions, createAction } from 'redux-actions';
 import produce from 'immer';
 
-export const types = {
+export const alertTypes = {
   OPEN: 'alert/OPEN',
   CLOSE: 'alert/CLOSE',
 };
 
 export const alertActions = {
-  open: createAction(types.OPEN),
-  close: createAction(types.CLOSE),
+  open: createAction(alertTypes.OPEN),
+  close: createAction(alertTypes.CLOSE),
   alert: message => dispatch => new Promise((resolve) => {
     dispatch(alertActions.open({ message, resolve }));
   }),
@@ -20,11 +20,11 @@ const initialState = {
 };
 
 export default handleActions({
-  [types.OPEN]: (state, { payload }) => produce(state, (draft) => {
+  [alertTypes.OPEN]: (state, { payload }) => produce(state, (draft) => {
     draft.show = true;
     draft.message = payload.message;
   }),
-  [types.CLOSE]: state => produce(state, (draft) => {
+  [alertTypes.CLOSE]: state => produce(state, (draft) => {
     draft.show = false;
   }),
 }, initialState);

@@ -1,13 +1,18 @@
-import { all, fork, put, takeEvery, delay } from 'redux-saga/effects';
-import { toastActions, types } from 'store/modules/toast';
+import { all, fork, put, takeEvery, delay, select } from 'redux-saga/effects';
+import { toastActions, toastTypes } from 'store/modules/toast';
 
-function* toast() {
-  yield delay(3000);
-  yield put(toastActions.dequeue());
+function* toast({ payload }) {
+  const message = typeof payload === 'string' ? payload : payload.message;
+  const time = payload.time || 3000;
+  const toasts = yield select(state => state.toast);
+  const id = toasts.length;
+  yield put(toastActions.push({ id, message }));
+  yield delay(time);
+  yield put(toastActions.delete(id));
 }
 
 function* watchToast() {
-  yield takeEvery(types.TOAST, toast);
+  yield takeEvery(toastTypes.TOAST, toast);
 }
 
 export default function* toastSaga() {

@@ -1,23 +1,26 @@
 import { handleActions, createAction } from 'redux-actions';
 import produce from 'immer';
 
-export const types = {
+export const toastTypes = {
   TOAST: 'toast/TOAST',
-  DEQUEUE: 'toast/DEQUEUE',
+  PUSH: 'toast/PUSH',
+  DELETE: 'toast/DELETE',
 };
 
 export const toastActions = {
-  toast: createAction(types.TOAST),
-  dequeue: createAction(types.DEQUEUE),
+  toast: createAction(toastTypes.TOAST),
+  push: createAction(toastTypes.PUSH),
+  delete: createAction(toastTypes.DELETE),
 };
 
 const initialState = [];
 
 export default handleActions({
-  [types.TOAST]: (state, { payload }) => produce(state, (draft) => {
-    draft.push({ id: draft.length, message: payload });
+  [toastTypes.PUSH]: (state, { payload }) => produce(state, (draft) => {
+    const { id, message } = payload;
+    draft.push({ id, message });
   }),
-  [types.DEQUEUE]: state => produce(state, (draft) => {
-    draft.shift();
+  [toastTypes.DELETE]: (state, { payload }) => produce(state, (draft) => {
+    draft.splice(draft.findIndex(t => t.id === payload), 1);
   }),
 }, initialState);
