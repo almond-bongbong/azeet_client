@@ -11,6 +11,17 @@ export const hidden = css`
   height: 1px;
 `;
 
+export const clearfix = css`
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+  &:after {
+    clear: both;  
+  }
+`;
+
 export const alignX = css`
   position: absolute;
   left: 50%;

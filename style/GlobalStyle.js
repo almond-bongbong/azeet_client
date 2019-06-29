@@ -40,8 +40,9 @@ export default createGlobalStyle`
   
   body {
       max-width: 100vw;
-      color: #777;
-      font-size: 15px;
+      background-color: #2d2d33;
+      color: #aaa;
+      font-size: 14px;
       line-height: 1.5;
       font-family: ${fontFamily};
       -webkit-text-size-adjust: 100%;
