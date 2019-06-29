@@ -1,12 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
+import LoginForm from 'container/LoginForm';
 
-const Login = () => {
-  console.log('login');
-  return (
-    <div>
-      hello login
-    </div>
-  );
-};
+const LoginPageStyle = styled.div`
+  
+`;
+
+const Login = () => (
+  <LoginPageStyle>
+    <LoginForm />
+  </LoginPageStyle>
+);
 
 export default Login;
