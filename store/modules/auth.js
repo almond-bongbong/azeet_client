@@ -1,14 +1,16 @@
 import { handleActions, createAction } from 'redux-actions';
 import produce from 'immer';
 
-export const accountTypes = {
-  LOGIN_WITH_KAKAO: 'account/LOGIN_WITH_KAKAO',
-  SET_ACCOUNT: 'account/SET_ACCOUNT',
+export const authTypes = {
+  AUTH: 'auth/AUTH',
+  LOGIN_WITH_KAKAO: 'auth/LOGIN_WITH_KAKAO',
+  SET_USER: 'auth/SET_USER',
 };
 
-export const accountActions = {
-  loginWithKakao: createAction(accountTypes.LOGIN_WITH_KAKAO),
-  setAccount: createAction(accountTypes.SET_ACCOUNT),
+export const authActions = {
+  auth: createAction(authTypes.AUTH),
+  loginWithKakao: createAction(authTypes.LOGIN_WITH_KAKAO),
+  setUser: createAction(authTypes.SET_USER),
 };
 
 const initialState = {
@@ -16,7 +18,7 @@ const initialState = {
 };
 
 export default handleActions({
-  [accountTypes.SET_ACCOUNT]: (state, { payload }) => produce(state, (draft) => {
+  [authTypes.SET_USER]: (state, { payload }) => produce(state, (draft) => {
     draft.user = payload;
   }),
 }, initialState);

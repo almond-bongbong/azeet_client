@@ -17,4 +17,6 @@ export function initAxios() {
     if (error.response) return Promise.reject(error.response);
     return Promise.reject(error);
   });
+
+  setAuthorization();
 }
