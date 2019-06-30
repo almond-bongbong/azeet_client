@@ -39,7 +39,7 @@ const LoginForm = () => {
 
   if (user) Router.replace('/');
 
-  const loginKakao = async (authResponse) => {
+  const loginKakao = (authResponse) => {
     dispatch(authActions.loginWithKakao(authResponse.access_token));
   };
 
