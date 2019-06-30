@@ -19,6 +19,7 @@
     "file-loader": "^4.0.0",
     "immer": "^3.1.2",
     "jest-dom": "^3.4.0",
+    "js-cookie": "^2.2.0",
     "lodash": "^4.17.11",
     "next": "^8.1.0",
     "nprogress": "^0.2.0",

@@ -27,7 +27,9 @@ const HeaderStyle = styled.div`
 
 const Header = () => (
   <HeaderStyle>
-    <h1>LOGO</h1>
+    <h1>
+      <Link href="/"><a href="/">LOGO</a></Link>
+    </h1>
     <nav>
       <Link href="/about"><a href="/about">About</a></Link>
       <Link href="/login"><a href="/login">Login</a></Link>

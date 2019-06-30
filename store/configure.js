@@ -4,7 +4,7 @@ import ReduxThunk from 'redux-thunk';
 import modules from './modules';
 import rootSaga from './sagas';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 const sagaMiddleware = createSagaMiddleware();
 const configure = createStore(
   modules,

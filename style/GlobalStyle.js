@@ -1,5 +1,5 @@
 import { createGlobalStyle, keyframes } from 'styled-components';
-import { blue } from 'style/mixin';
+import { yellow } from 'style/mixin';
 
 const fontFamily = 'Noto Serif KR, Apple SD Gothic Neo, Malgun Gothic, sans-serif;';
 const nprogressSpinner = keyframes`
@@ -111,7 +111,7 @@ export default createGlobalStyle`
   }
   
   #nprogress .bar {
-      background: ${blue};
+      background: ${yellow};
       position: fixed;
       z-index: 1031;
       top: 0;
@@ -126,13 +126,13 @@ export default createGlobalStyle`
       right: 0;
       width: 100px;
       height: 100%;
-      box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+      box-shadow: 0 0 10px #dddc09, 0 0 5px #dddc09;
       opacity: 1.0;
       transform: rotate(3deg) translate(0px, -4px);
   }
   
   #nprogress .spinner {
-      display: block;
+      display: none;
       position: fixed;
       z-index: 1031;
       top: 15px;

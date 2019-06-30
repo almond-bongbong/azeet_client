@@ -1,8 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import kakaoLoginImage from 'static/images/kakao_login_btn.png';
 import { alignXY } from 'style/mixin';
-import axios from 'axios';
+import { useKakao } from 'hooks';
+import { toastActions } from 'store/modules/toast';
+import { pendingActions } from 'store/modules/pending';
+import { accountActions, accountTypes } from 'store/modules/auth';
+import SimpleLoader from 'components/Loader/SimpleLoader';
 
 const LoginFormStyle = styled.div`
   ${alignXY};
@@ -10,32 +15,38 @@ const LoginFormStyle = styled.div`
   & p {
     margin-bottom: 15px;
   }
+  & button {
+    display: block;
+  }
   & .buttons img {
-    height: 50px;
+    height: 49px;
+  }
+  & .btn_kakao {
+    overflow: hidden;
+    width: 226px;
+    height: 48px; 
+    border-radius: 4px;
+    background-color: #f7e317;
   }
 `;
 
 const LoginForm = () => {
-  const Kakao = typeof window !== 'undefined' && window.Kakao;
+  const Kakao = useKakao();
+  const dispatch = useDispatch();
+  const kakoPending = useSelector(state => state.pending[accountTypes.LOGIN_WITH_KAKAO]);
 
-  useEffect(() => {
-    if (Kakao) Kakao.init('8cd0057a72cb5753848446901c1a0181');
-  }, [Kakao]);
-
-  const authKakao = async (accessToken) => {
-    const res = await axios({
-      method: 'post',
-      url: '/auth/kakao',
-      headers: { 'x-auth-token': accessToken },
-    });
-
-    console.log(res);
+  const loginKakao = async (authResponse) => {
+    dispatch(accountActions.loginWithKakao(authResponse.access_token));
   };
 
-  const loginWithKakao = () => {
+  const handleKakao = () => {
+    dispatch(pendingActions.pending(accountTypes.LOGIN_WITH_KAKAO));
     Kakao.Auth.login({
-      success(authObj) { authKakao(authObj.access_token); },
-      fail(err) { console.error(err); },
+      success: loginKakao,
+      fail: () => {
+        dispatch(toastActions.toast('문제가 발생했습니다'));
+        dispatch(pendingActions.finally(accountTypes.LOGIN_WITH_KAKAO));
+      },
     });
   };
 
@@ -43,8 +54,12 @@ const LoginForm = () => {
     <LoginFormStyle>
       <p>SNS 계정으로 간편하게 시작해 보세요</p>
       <div className="buttons">
-        <button type="button" onClick={loginWithKakao}>
-          <img src={kakaoLoginImage} alt="Log in with Kakao" />
+        <button className="btn_kakao" type="button" onClick={handleKakao}>
+          {kakoPending ? (
+            <SimpleLoader size={25} />
+          ) : (
+            <img src={kakaoLoginImage} alt="Log in with Kakao" />
+          )}
         </button>
       </div>
     </LoginFormStyle>
