@@ -32,7 +32,7 @@ const Thumbnail = ({ url }) => {
 
   return (
     <ThumbnailStyle pending={pending ? 1 : 0}>
-      {pending && 'loading...'}
+      {pending && <span>loading...</span>}
       <img src={url} alt="this is one" />
     </ThumbnailStyle>
   );

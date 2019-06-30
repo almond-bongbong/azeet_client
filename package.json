@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
+    "axios-mock-adapter": "^1.16.0",
     "babel-eslint": "^10.0.2",
     "css-loader": "^2.1.0",
     "docz": "latest",

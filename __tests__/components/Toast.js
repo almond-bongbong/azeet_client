@@ -30,7 +30,7 @@ describe('Toast', () => {
   it('calls toast popup with time', async () => {
     const { getByText, queryByText, store } = renderWithRedux(
       <>
-        <Button text="click" onClick={() => store.dispatch(toastActions.toast({ message: 'toast!', time: 1000 }))} />
+        <Button text="click" onClick={() => store.dispatch(toastActions.toast({ message: 'toast!', time: 500 }))} />
         <Toast />
       </>,
     );

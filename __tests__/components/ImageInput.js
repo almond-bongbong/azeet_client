@@ -8,7 +8,7 @@ describe('Button', () => {
     expect(utils.container).toMatchSnapshot();
   });
 
-  it('calls onChange File', async () => {
+  it('input file', async () => {
     const handleFile = jest.fn();
     const { getByTitle } = render(<ImageInput onChange={handleFile} />);
     getByTitle('이미지 업로드');

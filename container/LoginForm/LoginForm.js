@@ -58,7 +58,7 @@ const LoginForm = () => {
     <LoginFormStyle>
       <p>SNS 계정으로 간편하게 시작해 보세요</p>
       <div className="buttons">
-        <button className="btn_kakao" type="button" onClick={handleKakao}>
+        <button className="btn_kakao" type="button" title="kakao login" onClick={handleKakao}>
           {kakoPending ? (
             <SimpleLoader size={25} />
           ) : (

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm matches snapshot 1`] = `
+<div>
+  <div
+    class="LoginForm__LoginFormStyle-sc-13qd6qc-0 jNUouh"
+  >
+    <p>
+      SNS 계정으로 간편하게 시작해 보세요
+    </p>
+    <div
+      class="buttons"
+    >
+      <button
+        class="btn_kakao"
+        title="kakao login"
+        type="button"
+      >
+        <img
+          alt="Log in with Kakao"
+          src="[object Object]"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
