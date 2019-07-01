@@ -25,15 +25,17 @@ class Azeet extends App {
 
     initAxios();
     const { store, req } = ctx;
-    const cookies = cookieParser(req.headers.cookie);
 
-    if (cookies.authorization) {
-      try {
-        setAuthorization(cookies.authorization);
-        const data = await auth();
-        store.dispatch(authActions.setUser(data));
-      } catch (e) {
-        console.error(e);
+    if (req) {
+      const { authorization } = cookieParser(req.headers.cookie);
+      if (authorization) {
+        try {
+          setAuthorization(authorization);
+          const data = await auth();
+          store.dispatch(authActions.setUser(data));
+        } catch (e) {
+          console.error(e);
+        }
       }
     }
 
