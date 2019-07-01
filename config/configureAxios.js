@@ -4,12 +4,12 @@ import Cookie from 'js-cookie';
 
 export const apiUrl = process.env.NODE_ENV === 'production' ? 'https://api.azeet.io' : 'http://localhost:8080';
 
-export function setAuthorization() {
-  const token = Cookie.get('authorization');
-  if (token) axios.defaults.headers.common.Authorization = `Bearer ${Cookie.get('authorization')}`;
+export function setAuthorization(token = Cookie.get('authorization')) {
+  if (token) axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
 
 export function initAxios() {
+  if (axios.interceptors.response.handlers.length > 0) return;
   axios.defaults.baseURL = apiUrl;
   axios.defaults.timeout = 8000;
   axios.defaults.paramsSerializer = params => qs.stringify(params, { arrayFormat: 'repeat' });
@@ -17,6 +17,5 @@ export function initAxios() {
     if (error.response) return Promise.reject(error.response);
     return Promise.reject(error);
   });
-
   setAuthorization();
 }

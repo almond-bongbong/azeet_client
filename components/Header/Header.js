@@ -1,7 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { clearfix } from 'style/mixin';
+import UserThumbnail from '../Thumbnail/UserThumbnail';
 
 const HeaderStyle = styled.div`
   ${clearfix};
@@ -25,16 +27,24 @@ const HeaderStyle = styled.div`
   }
 `;
 
-const Header = () => (
-  <HeaderStyle>
-    <h1>
-      <Link href="/"><a href="/">LOGO</a></Link>
-    </h1>
-    <nav>
-      <Link href="/about"><a href="/about">About</a></Link>
-      <Link href="/login"><a href="/login">Login</a></Link>
-    </nav>
-  </HeaderStyle>
-);
+const Header = () => {
+  const user = useSelector(state => state.auth.user);
+
+  return (
+    <HeaderStyle>
+      <h1>
+        <Link href="/"><a href="/">LOGO</a></Link>
+      </h1>
+      <nav>
+        <Link href="/about"><a href="/about">About</a></Link>
+        {user ? (
+          <Link href="/my"><a href="/login"><UserThumbnail url={user.thumbnailImage} /></a></Link>
+        ) : (
+          <Link href="/login"><a href="/login">Login</a></Link>
+        )}
+      </nav>
+    </HeaderStyle>
+  );
+};
 
 export default Header;
