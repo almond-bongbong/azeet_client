@@ -36,9 +36,8 @@ const Header = () => {
         <Link href="/"><a href="/">LOGO</a></Link>
       </h1>
       <nav>
-        <Link href="/about"><a href="/about">About</a></Link>
         {user ? (
-          <Link href="/my"><a href="/login"><UserThumbnail url={user.thumbnailImage} /></a></Link>
+          <Link href={`/azeet?userId=${user.userId}`} as={`/azeet/${user.userId}`}><a href={`/my/${user.userId}`}><UserThumbnail url={user.thumbnailImage} /></a></Link>
         ) : (
           <Link href="/login"><a href="/login">Login</a></Link>
         )}
