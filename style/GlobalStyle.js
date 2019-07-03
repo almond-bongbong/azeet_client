@@ -41,7 +41,7 @@ export default createGlobalStyle`
   body {
       max-width: 100vw;
       background-color: #2d2d33;
-      color: #aaa;
+      color: #eee;
       font-size: 14px;
       line-height: 1.5;
       font-family: ${fontFamily};

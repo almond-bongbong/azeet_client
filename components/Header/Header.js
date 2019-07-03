@@ -3,27 +3,31 @@ import { useSelector } from 'react-redux';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { clearfix } from 'style/mixin';
-import UserThumbnail from '../Thumbnail/UserThumbnail';
+import Thumbnail, { ThumbnailStyle } from '../Thumbnail/Thumbnail';
 
 const HeaderStyle = styled.div`
   ${clearfix};
   padding: 10px 20px;
   background-color: #2b2b2f;
   box-shadow: 0 1px 5px rgba(0,0,0,0.3);
-  & h1 {
+  h1 {
     float: left;
     font-size: 15px;
   }
-  
-  & button {
+  button {
     display: block;
   }
-  
-  & nav {
+  nav {
     float: right;
     > a + a {
       margin-left: 10px;
     }
+  }
+  ${ThumbnailStyle} {
+    overflow: hidden;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
   }
 `;
 
@@ -37,7 +41,9 @@ const Header = () => {
       </h1>
       <nav>
         {user ? (
-          <Link href={`/azeet?userId=${user.userId}`} as={`/azeet/${user.userId}`}><a href={`/my/${user.userId}`}><UserThumbnail url={user.thumbnailImage} /></a></Link>
+          <Link href="my">
+            <a href="my"><Thumbnail url={user.thumbnailImage} /></a>
+          </Link>
         ) : (
           <Link href="/login"><a href="/login">Login</a></Link>
         )}

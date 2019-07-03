@@ -4,6 +4,7 @@ import produce from 'immer';
 export const authTypes = {
   AUTH: 'auth/AUTH',
   LOGIN_WITH_KAKAO: 'auth/LOGIN_WITH_KAKAO',
+  LOGOUT: 'auth/LOGOUT',
   SET_USER: 'auth/SET_USER',
 };
 

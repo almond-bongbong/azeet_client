@@ -47,8 +47,8 @@ const BasicButtonStyle = styled.div`
     `};
     
     ${props => props.theme === 'gray' && css`
-      background-color: #bfbfbf;
-      border: 1px solid #bfbfbf;
+      background-color: #666;
+      border: 1px solid #666;
       color: #fff;
     `}
     

@@ -13,6 +13,8 @@ import { auth } from 'api/auth';
 import { cookieParser } from 'lib/cookie';
 import { authActions } from 'store/modules/auth';
 import { initAxios, setAuthorization } from '../config/configureAxios';
+import Confirm from '../components/Confirm';
+import Alert from '../components/Alert';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
@@ -60,6 +62,8 @@ class Azeet extends App {
         <Provider store={store}>
           <Header />
           <Component {...pageProps} />
+          <Confirm />
+          <Alert />
           <Toast />
         </Provider>
       </Container>

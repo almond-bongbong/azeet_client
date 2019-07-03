@@ -1,17 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { keyframes, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { red } from 'style/mixin';
 import hexToRgb from 'lib/hexToRgb';
-
-const rotation = keyframes`
-  from {
-    transform: translateZ(0) rotate(0deg);
-  }
-  to {
-    transform: translateZ(0) rotate(360deg);
-  }
-`;
+import { rotation } from 'style/animations';
 
 const SimpleLoaderStyle = styled.div`
   position: relative;
