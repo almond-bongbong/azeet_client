@@ -12,9 +12,11 @@ import Toast from 'components/Toast';
 import { auth } from 'api/auth';
 import { cookieParser } from 'lib/cookie';
 import { authActions } from 'store/modules/auth';
+import { alertActions } from 'store/modules/alert';
 import { initAxios, setAuthorization } from '../config/configureAxios';
 import Confirm from '../components/Confirm';
 import Alert from '../components/Alert';
+import { makeRedirect } from '../lib/route';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
@@ -22,27 +24,39 @@ Router.events.on('routeChangeError', () => NProgress.done());
 
 class Azeet extends App {
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
-    if (Component.getInitialProps) { pageProps = await Component.getInitialProps(ctx); }
-
     initAxios();
-    const { store, req } = ctx;
 
+    const { store, req } = ctx;
+    let pageProps = {};
+    let user;
+
+    if (Component.getInitialProps) { pageProps = await Component.getInitialProps(ctx); }
     if (req) {
       const { authorization } = cookieParser(req.headers.cookie);
       if (authorization) {
         try {
           setAuthorization(authorization);
-          const data = await auth();
-          store.dispatch(authActions.setUser(data));
+          user = await auth();
+          store.dispatch(authActions.setUser(user));
         } catch (e) {
-          console.error(e);
+          if (e.response.status === 500) {
+            store.dispatch(alertActions.alert('서버에 문제가 발생했습니다.'));
+          }
         }
+      }
+
+      if (pageProps.isPrivate && !user) {
+        makeRedirect(ctx, '/login');
       }
     }
 
     return { pageProps };
   }
+
+  componentDidMount() {
+    initAxios();
+  }
+
 
   render() {
     const { Component, pageProps, store } = this.props;

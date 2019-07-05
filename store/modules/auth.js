@@ -15,7 +15,7 @@ export const authActions = {
 };
 
 const initialState = {
-  user: null,
+  user: undefined,
 };
 
 export default handleActions({

@@ -77,7 +77,7 @@ const Confirm = () => {
             </div>
             <ButtonGroup>
               <Button inline={false} onClick={handleCancel} text="취소" />
-              <Button inline={false} onClick={handleConfirm} theme="red" text="확인" />
+              <Button inline={false} onClick={handleConfirm} theme="gray" text="확인" />
             </ButtonGroup>
           </div>
         </ConfirmStyle>

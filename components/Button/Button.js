@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import SimpleLoader from 'components/Loader/SimpleLoader';
 import styled, { css } from 'styled-components';
-import { red, blue } from 'style/mixin';
+import { red, blue, yellow } from 'style/mixin';
 
 const BasicButtonStyle = styled.div`
   display: block;

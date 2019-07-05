@@ -22,4 +22,6 @@ const My = () => {
   );
 };
 
+My.getInitialProps = () => ({ isPrivate: true });
+
 export default My;
