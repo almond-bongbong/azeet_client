@@ -28,7 +28,6 @@ class Azeet extends App {
 
     const { store, req } = ctx;
     let pageProps = {};
-    let user;
 
     if (Component.getInitialProps) { pageProps = await Component.getInitialProps(ctx); }
     if (req) {
@@ -36,19 +35,16 @@ class Azeet extends App {
       if (authorization) {
         try {
           setAuthorization(authorization);
-          user = await auth();
+          const user = await auth();
           store.dispatch(authActions.setUser(user));
         } catch (e) {
-          if (e.response.status === 500) {
-            store.dispatch(alertActions.alert('서버에 문제가 발생했습니다.'));
-          }
+          if (e.response.status === 500) store.dispatch(alertActions.alert('서버에 문제가 발생했습니다.'));
         }
       }
-
-      if (pageProps.isPrivate && !user) {
-        makeRedirect(ctx, '/login');
-      }
     }
+
+    const { user } = store.getState().auth;
+    if (pageProps.isPrivate && !user) makeRedirect(ctx, '/login');
 
     return { pageProps };
   }
@@ -56,7 +52,6 @@ class Azeet extends App {
   componentDidMount() {
     initAxios();
   }
-
 
   render() {
     const { Component, pageProps, store } = this.props;

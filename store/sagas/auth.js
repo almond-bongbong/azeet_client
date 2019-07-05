@@ -1,4 +1,5 @@
-import { all, fork, call, put, takeLatest } from 'redux-saga/effects';
+import { all, fork, call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import Router from 'next/router';
 import { authActions, authTypes } from 'store/modules/auth';
 import { auth, authKakao } from 'api/auth';
 import Cookie from 'js-cookie';
@@ -43,6 +44,11 @@ function* loginWithKakao({ type, payload }) {
   }
 }
 
+function* logout() {
+  yield call(Cookie.remove, 'authorization');
+  yield call(Router.replace, '/');
+}
+
 function* watchAuth() {
   yield takeLatest(authTypes.AUTH, fetchAuth);
 }
@@ -51,9 +57,14 @@ function* watchLoginWithKakao() {
   yield takeLatest(authTypes.LOGIN_WITH_KAKAO, loginWithKakao);
 }
 
+function* watchLogout() {
+  yield takeEvery(authTypes.LOGOUT, logout);
+}
+
 export default function* accountSaga() {
   yield all([
     fork(watchAuth),
     fork(watchLoginWithKakao),
+    fork(watchLogout),
   ]);
 }

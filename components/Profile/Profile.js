@@ -7,6 +7,7 @@ import Button from 'components/Button/Button';
 import { useDispatch } from 'react-redux';
 import { confirmActions } from 'store/modules/confirm';
 import Cookie from 'js-cookie';
+import { authActions } from '../../store/modules/auth';
 
 export const ProfileStyle = styled.div`
   padding: 50px;
@@ -33,8 +34,7 @@ const Profile = ({ user }) => {
   const dispatch = useDispatch();
   const handleLogout = useCallback(async () => {
     if (await dispatch(confirmActions.confirm('정말 로그아웃 하시겠습니까?'))) {
-      Cookie.remove('authorization');
-      Router.replace('/');
+      dispatch(authActions.logout());
     }
   }, [dispatch]);
 
