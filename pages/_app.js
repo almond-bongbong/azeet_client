@@ -38,7 +38,7 @@ class Azeet extends App {
           const user = await auth();
           store.dispatch(authActions.setUser(user));
         } catch (e) {
-          if (e.response.status === 500) store.dispatch(alertActions.alert('서버에 문제가 발생했습니다.'));
+          if (e.status === 500) store.dispatch(alertActions.alert('서버에 문제가 발생했습니다.'));
         }
       }
     }

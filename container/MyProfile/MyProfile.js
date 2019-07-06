@@ -1,15 +1,13 @@
 import React, { useCallback } from 'react';
-import Router from 'next/router';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Thumbnail, { ThumbnailStyle } from 'components/Thumbnail/Thumbnail';
 import Button from 'components/Button/Button';
 import { useDispatch } from 'react-redux';
 import { confirmActions } from 'store/modules/confirm';
-import Cookie from 'js-cookie';
 import { authActions } from '../../store/modules/auth';
 
-export const ProfileStyle = styled.div`
+export const MyProfileStyle = styled.div`
   padding: 50px;
   background-color: #28282d;
   box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.3);
@@ -29,7 +27,7 @@ export const ProfileStyle = styled.div`
   }
 `;
 
-const Profile = ({ user }) => {
+const MyProfile = ({ user }) => {
   const { nickname, profileImage } = user;
   const dispatch = useDispatch();
   const handleLogout = useCallback(async () => {
@@ -39,23 +37,23 @@ const Profile = ({ user }) => {
   }, [dispatch]);
 
   return (
-    <ProfileStyle>
+    <MyProfileStyle>
       <Thumbnail url={profileImage} />
       <div className="name">{nickname}</div>
       <Button height={30} onClick={handleLogout} theme="gray" text="로그아웃" />
-    </ProfileStyle>
+    </MyProfileStyle>
   );
 };
 
-Profile.propTypes = {
+MyProfile.propTypes = {
   user: PropTypes.shape({
     nickname: PropTypes.string,
     profileImage: PropTypes.string,
   }),
 };
 
-Profile.defaultProps = {
+MyProfile.defaultProps = {
   user: {},
 };
 
-export default Profile;
+export default MyProfile;

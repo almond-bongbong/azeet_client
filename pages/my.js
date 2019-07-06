@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import Profile, { ProfileStyle } from 'components/Profile/Profile';
+import Profile, { MyProfileStyle } from 'container/MyProfile/MyProfile';
 
 const MyStyle = styled.div`
-  ${ProfileStyle} {
+  ${MyProfileStyle} {
     position: fixed;
     top: 50%;
     left: 50%;
