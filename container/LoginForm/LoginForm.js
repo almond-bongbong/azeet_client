@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Router from 'next/router';
 import styled from 'styled-components';
 import kakaoLoginImage from 'static/images/kakao_login_btn.png';
 import { alignXY } from 'style/mixin';
@@ -37,7 +36,7 @@ const LoginForm = () => {
   const kakoPending = useSelector(state => state.pending[authTypes.LOGIN_WITH_KAKAO]);
   const user = useSelector(state => state.auth.user);
 
-  if (user) Router.replace('/');
+  // if (process.browser && user) Router.replace('/');
 
   const loginKakao = (authResponse) => {
     dispatch(authActions.loginWithKakao(authResponse.access_token));

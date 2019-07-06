@@ -35,8 +35,10 @@ function* loginWithKakao({ type, payload }) {
     setAuthorization();
 
     const user = yield call(auth);
+    const { next } = Router.query;
     yield put(toastActions.toast('로그인 되었습니다'));
     yield put(authActions.setUser(user));
+    yield call(Router.replace, next || '/');
   } catch (e) {
     yield put(toastActions.toast('문제가 발생했습니다'));
   } finally {

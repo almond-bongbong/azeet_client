@@ -44,6 +44,7 @@ class Azeet extends App {
     }
 
     const { user } = store.getState().auth;
+    if (pageProps.onlyAnonymous && user) makeRedirect(ctx, '/', false);
     if (pageProps.isPrivate && !user) makeRedirect(ctx, '/login');
 
     return { pageProps };
