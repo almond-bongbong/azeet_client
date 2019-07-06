@@ -11,7 +11,7 @@ describe('Thumbnail', () => {
   it('load image', async () => {
     const { queryByText, getByAltText } = render(<Thumbnail url="https://placeimg.com/100/100/any" />);
     const loading = queryByText('loading...');
-    const img = getByAltText('this is one');
+    const img = getByAltText('thumbnail');
     expect(loading).toBeDefined();
     expect(img).toHaveStyle('opacity: 0');
   });

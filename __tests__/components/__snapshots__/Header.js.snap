@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header matches snapshot 1`] = `
+<div>
+  <div
+    class="Header__HeaderStyle-sc-8u78di-0 iCLpEf"
+  >
+    <h1>
+      <a
+        href="/"
+      >
+        LOGO
+      </a>
+    </h1>
+    <nav>
+      <a
+        href="/login"
+      >
+        Login
+      </a>
+    </nav>
+  </div>
+</div>
+`;

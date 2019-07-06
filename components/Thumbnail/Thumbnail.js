@@ -57,7 +57,7 @@ const Thumbnail = ({ url }) => {
   return (
     <ThumbnailStyle pending={pending ? 1 : 0}>
       {pending && <span className="loading">loading...</span>}
-      <img src={url} alt="this is one" />
+      <img src={url} alt="thumbnail" />
     </ThumbnailStyle>
   );
 };
