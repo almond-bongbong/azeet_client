@@ -1,0 +1,30 @@
+---
+name: useAlert
+menu: CustomHooks
+---
+
+import { Playground } from 'docz'
+import { useAlert } from 'hooks'
+import Button from 'components/Button/Button';
+
+# useAlert
+
+- alert를 호출하는 커스텀 hook 입니다.
+
+## Basic Usage
+
+<Playground>
+  {() => {
+    const Test = () => {
+      const alert = useAlert();
+
+      return (
+        <Button onClick={_ => alert('hello')} text="alert" />
+      )
+    }
+
+    return (
+      <Test />
+    )
+  }}
+</Playground>

@@ -14,18 +14,17 @@ const AlertStyle = styled.div`
   left: 0;
   z-index: 10000;
   background-color: rgba(0,0,0,0.4);
-  animation: ${fadeIn} .2s ease-in-out;
   
   &.alert-enter {
     opacity: 0;
-    transition: opacity .3s;
+    transition: opacity .2s;
   }
   &.alert-enter-active {
     opacity: 1;
   }
   &.alert-leave {
     opacity: 1;
-    transition: opacity .3s;
+    transition: opacity .2s;
   }
   &.alert-leave-active {
     opacity: 0;
@@ -57,8 +56,8 @@ const Alert = () => {
   return (
     <ReactCSSTransitionGroup
       transitionName="alert"
-      transitionEnterTimeout={300}
-      transitionLeaveTimeout={300}
+      transitionEnterTimeout={200}
+      transitionLeaveTimeout={200}
     >
       {show && (
         <AlertStyle>
@@ -66,7 +65,7 @@ const Alert = () => {
             <div className="message">
               {newlineText(message)}
             </div>
-            <Button inline={false} onClick={window.callbackStore.alert} text="확인"/>
+            <Button inline={false} onClick={window.callbackStore.alert} text="확인" />
           </div>
         </AlertStyle>
       )}

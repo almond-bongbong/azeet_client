@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Button from 'components/Button/Button';
 import ButtonGroup from 'components/ButtonGroup/ButtonGroup';
 import newlineText from 'lib/newlineText';
-import { fadeIn } from 'style/animations';
 
 const ConfirmStyle = styled.div`
   position: fixed;
@@ -15,18 +14,17 @@ const ConfirmStyle = styled.div`
   left: 0;
   z-index: 10000;
   background-color: rgba(0,0,0,0.4);
-  animation: ${fadeIn} .2s ease-in-out;
   
   &.confirm-enter {
     opacity: 0;
-    transition: opacity .3s;
+    transition: opacity .2s;
   }
   &.confirm-enter-active {
     opacity: 1;
   }
   &.confirm-leave {
     opacity: 1;
-    transition: opacity .3s;
+    transition: opacity .2s;
   }
   &.confirm-leave-active {
     opacity: 0;
@@ -66,8 +64,8 @@ const Confirm = () => {
   return (
     <ReactCSSTransitionGroup
       transitionName="confirm"
-      transitionEnterTimeout={300}
-      transitionLeaveTimeout={300}
+      transitionEnterTimeout={200}
+      transitionLeaveTimeout={200}
     >
       {show && (
         <ConfirmStyle>

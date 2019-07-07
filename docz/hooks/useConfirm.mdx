@@ -1,0 +1,33 @@
+---
+name: useConfirm
+menu: CustomHooks
+---
+
+import { Playground } from 'docz'
+import { useConfirm } from 'hooks'
+import Button from 'components/Button/Button';
+
+# useConfirm
+
+- confirm 창을 호출하는 커스텀 hook 입니다.
+
+## Basic Usage
+
+<Playground>
+  {() => {
+    const Test = () => {
+      const confirm = useConfirm();
+      const handleClick = () => {
+        confirm('hello').then(console.log);
+      };
+
+      return (
+        <Button onClick={handleClick} text="alert" />
+      )
+    }
+
+    return (
+      <Test />
+    )
+  }}
+</Playground>
