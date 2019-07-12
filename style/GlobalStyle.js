@@ -16,16 +16,13 @@ export default createGlobalStyle`
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
   }
-  
   ul, ol {
       list-style: none;
   }
-  
   img {
       border: 0;
       vertical-align: middle;
   }
-  
   button {
       margin: 0;
       padding: 0;
@@ -37,7 +34,6 @@ export default createGlobalStyle`
   button span {
       position: relative;
   }
-  
   body {
       max-width: 100vw;
       background-color: #2d2d33;
@@ -49,7 +45,6 @@ export default createGlobalStyle`
       -ms-text-size-adjust: 100%;
       -webkit-font-smoothing: antialiased;
   }
-  
   a, button {
       color: inherit;
       font-size: inherit;
@@ -57,7 +52,6 @@ export default createGlobalStyle`
       line-height: 1.5;
       font-family: ${fontFamily};
   }
-  
   button {
       outline: 0;
       padding: 0;
@@ -104,7 +98,12 @@ export default createGlobalStyle`
   input[type="text"]:-webkit-autofill {
       -webkit-box-shadow: 0 0 0 30px white inset !important;
   }
-
+  
+  .anticon {
+    svg {
+      display: block;
+    }
+  }
   
   #nprogress {
       pointer-events: none;

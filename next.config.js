@@ -6,7 +6,7 @@ module.exports = {
     config.resolve.modules.push(path.resolve('./'));
     config.node = { fs: 'empty' };
     config.module.rules.push({
-      test: /.(png|jpg)$/,
+      test: /.(svg|png|jpg)$/,
       use: [
         {
           loader: 'file-loader',
