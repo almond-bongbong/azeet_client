@@ -13,10 +13,11 @@ import { auth } from 'api/auth';
 import { cookieParser } from 'lib/cookie';
 import { authActions } from 'store/modules/auth';
 import { alertActions } from 'store/modules/alert';
-import { initAxios, setAuthorization } from '../config/configureAxios';
-import Confirm from '../components/Confirm';
-import Alert from '../components/Alert';
-import { makeRedirect } from '../lib/route';
+import { initAxios, setAuthorization } from 'config/configureAxios';
+import Confirm from 'components/Confirm';
+import Alert from 'components/Alert';
+import Layout from 'components/Layout/Layout';
+import { makeRedirect } from 'lib/route';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
@@ -66,12 +67,14 @@ class Azeet extends App {
           <link rel="shortcut icon" href="/static/favicon.ico" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" />
           <script src="//developers.kakao.com/sdk/js/kakao.min.js" />
-          <GlobalStyle />
         </Head>
 
         <Provider store={store}>
+          <GlobalStyle />
           <Header />
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
           <Confirm />
           <Alert />
           <Toast />

@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Thumbnail, { ThumbnailStyle } from 'components/Thumbnail/Thumbnail';
+import Image, { ThumbnailStyle } from 'components/Thumbnail/Thumbnail';
 import Button from 'components/Button/Button';
 import { useDispatch } from 'react-redux';
 import { confirmActions } from 'store/modules/confirm';
@@ -38,7 +38,7 @@ const MyProfile = ({ user }) => {
 
   return (
     <MyProfileStyle>
-      <Thumbnail url={profileImage} />
+      <Image url={profileImage} />
       <div className="name">{nickname}</div>
       <Button height={30} onClick={handleLogout} theme="gray" text="로그아웃" />
     </MyProfileStyle>

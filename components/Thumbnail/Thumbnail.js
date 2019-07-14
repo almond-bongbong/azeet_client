@@ -1,46 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { rotation } from 'style/animations';
+import { veil } from 'style/animations';
 
 export const ThumbnailStyle = styled.div`
-  img {
+  position: relative;
+  .image {
     display: block;
     width: 100%;
     opacity: 0;
-    transition: opacity .3s;
+    transition: opacity .4s;
   }
-  .loading {
+  &:after {
+    content: '';
     display: block;
-    position: relative;
-    overflow: hidden;
-    height: 100%;
-    background-color: #555;
-    text-align: left;
-    text-indent: -9999px;
-    font-size: 0;
-    
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #666;
-      transform-origin: 50% 0;
-      animation: ${rotation} 1s linear infinite;
-    }
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(45deg, #06B07D, #55BBEB, #8668AD);
+    background-size: 100vw 200vh;
+    transition: background-position .3s ease, opacity .4s;
+    animation: ${veil} 2s ease infinite;
   }
-  ${props => (!props.pending && css`
-    img {
+  ${({ url, background }) => (background && css`
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    .image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: url(${url}) no-repeat 50% 50%;
+    }
+  `)};
+  ${({ pending }) => (!pending && css`
+    .image {
       opacity: 1;
+    }
+    :after {
+      opacity: 0;
     }
   `)};
 `;
 
-const Thumbnail = ({ url }) => {
+const Thumbnail = ({ url, background }) => {
   const [pending, setPending] = useState(true);
 
   useEffect(() => {
@@ -55,19 +64,24 @@ const Thumbnail = ({ url }) => {
   }, [url]);
 
   return (
-    <ThumbnailStyle pending={pending ? 1 : 0}>
-      {pending && <span className="loading">loading...</span>}
-      <img src={url} alt="thumbnail" />
+    <ThumbnailStyle pending={pending ? 1 : 0} url={url} background={background ? 1 : 0}>
+      {background ? (
+        <div className="image" />
+      ) : (
+        <img src={url} alt="thumbnail" className="image" />
+      )}
     </ThumbnailStyle>
   );
 };
 
 Thumbnail.propTypes = {
   url: PropTypes.string,
+  background: PropTypes.bool,
 };
 
 Thumbnail.defaultProps = {
   url: undefined,
+  background: false,
 };
 
 export default Thumbnail;

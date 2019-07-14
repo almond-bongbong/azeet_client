@@ -10,4 +10,10 @@ export const rotation = keyframes`
   100% { transform: translateZ(0) rotate(360deg); }
 `;
 
+export const veil = keyframes`
+  0%, 5% { background-position: 0 90%; }
+  45%, 55% { background-position: 0 10%; }
+  95%, 100% { background-position: 0 90%; }
+`;
+
 export default null;

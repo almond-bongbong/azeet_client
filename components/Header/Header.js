@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Logo from 'static/images/logo.svg';
 import { clearfix } from 'style/mixin';
 import { Icon } from 'antd';
-import Thumbnail, { ThumbnailStyle } from '../Thumbnail/Thumbnail';
+import Thumbnail, { ThumbnailStyle } from 'components/Thumbnail/Thumbnail';
 
 const HeaderStyle = styled.div`
   ${clearfix};
@@ -27,7 +27,7 @@ const HeaderStyle = styled.div`
     color: #eee;
     a {
       display: inline-block;
-      padding: 5px;
+      padding: 3px;
       font-size: 20px;
       vertical-align: top;
       & + a {
