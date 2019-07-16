@@ -34,9 +34,6 @@ const LoginForm = () => {
   const Kakao = useKakao();
   const dispatch = useDispatch();
   const kakoPending = useSelector(state => state.pending[authTypes.LOGIN_WITH_KAKAO]);
-  const user = useSelector(state => state.auth.user);
-
-  // if (process.browser && user) Router.replace('/');
 
   const loginKakao = (authResponse) => {
     dispatch(authActions.loginWithKakao(authResponse.access_token));

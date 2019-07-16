@@ -5,7 +5,7 @@ import Image, { ThumbnailStyle } from 'components/Thumbnail/Thumbnail';
 import Button from 'components/Button/Button';
 import { useDispatch } from 'react-redux';
 import { confirmActions } from 'store/modules/confirm';
-import { authActions } from '../../store/modules/auth';
+import { authActions } from 'store/modules/auth';
 
 export const MyProfileStyle = styled.div`
   padding: 50px;

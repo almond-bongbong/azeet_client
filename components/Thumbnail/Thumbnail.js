@@ -19,10 +19,10 @@ export const ThumbnailStyle = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(45deg, #06B07D, #55BBEB, #8668AD);
-    background-size: 100vw 200vh;
-    transition: background-position .3s ease, opacity .4s;
-    animation: ${veil} 2s ease infinite;
+    background: linear-gradient(-45deg, #ee7752, #e7c705, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    transition: opacity .4s;
+    animation: ${veil} 3s ease infinite;
   }
   ${({ url, background }) => (background && css`
     position: absolute;
@@ -37,6 +37,7 @@ export const ThumbnailStyle = styled.div`
       bottom: 0;
       left: 0;
       background: url(${url}) no-repeat 50% 50%;
+      background-size: cover;
     }
   `)};
   ${({ pending }) => (!pending && css`

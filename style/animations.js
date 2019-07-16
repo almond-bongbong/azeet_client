@@ -11,9 +11,9 @@ export const rotation = keyframes`
 `;
 
 export const veil = keyframes`
-  0%, 5% { background-position: 0 90%; }
-  45%, 55% { background-position: 0 10%; }
-  95%, 100% { background-position: 0 90%; }
+  0% { background-position: 0 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0 50% }
 `;
 
 export default null;
