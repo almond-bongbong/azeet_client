@@ -60,74 +60,63 @@ export default createGlobalStyle`
           position: relative;
       }
   }
-  
   .hidden {
-      overflow: hidden;
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-      width: 0;
-      height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    width: 0;
+    height: 0;
   }
-  
-  input[type="text"],
-  input[type="password"],
+  input,
   textarea,
   select,
   input[type="checkbox"] + label,
   input[type="radio"] + label{
-      border-radius: 0;
-      color: #777;
-      font: 14px/1.5 ${fontFamily};
-      vertical-align: middle;
+    border-radius: 0;
+    color: #777;
+    font: 14px/1.5 ${fontFamily};
+    vertical-align: middle;
+  }
+  input {
+    background-color: transparent;
   }
   em {
-      font-style: normal;
+    font-style: normal;
   }
   a:focus {
-      outline: none;
+    outline: none;
   }
   a::selection {
-      background: transparent;
-      pointer-events: none;
+    background: transparent;
+    pointer-events: none;
   }
-  
-  input[type="text"] {
-      -webkit-box-shadow: 0 0 0 30px white inset !important;
-  }
-  input[type="text"]:-webkit-autofill {
-      -webkit-box-shadow: 0 0 0 30px white inset !important;
-  }
-  
   .anticon {
     svg {
       display: block;
     }
   }
-  
   #nprogress {
-      pointer-events: none;
+    pointer-events: none;
   }
-  
   #nprogress .bar {
-      background: ${yellow};
-      position: fixed;
-      z-index: 1031;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
+    background: ${yellow};
+    position: fixed;
+    z-index: 1031;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
   }
-  
   #nprogress .peg {
-      display: block;
-      position: absolute;
-      right: 0;
-      width: 100px;
-      height: 100%;
-      box-shadow: 0 0 10px #dddc09, 0 0 5px #dddc09;
-      opacity: 1.0;
-      transform: rotate(3deg) translate(0px, -4px);
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    box-shadow: 0 0 10px #dddc09, 0 0 5px #dddc09;
+    opacity: 1.0;
+    transform: rotate(3deg) translate(0px, -4px);
   }
   
   #nprogress .spinner {

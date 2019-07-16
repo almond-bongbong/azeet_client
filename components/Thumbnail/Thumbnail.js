@@ -19,10 +19,10 @@ export const ThumbnailStyle = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(-45deg, #ee7752, #e7c705, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, #ee7752, #e7ab34, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     transition: opacity .4s;
-    animation: ${veil} 3s ease infinite;
+    animation: ${veil} 5s ease infinite;
   }
   ${({ url, background }) => (background && css`
     position: absolute;

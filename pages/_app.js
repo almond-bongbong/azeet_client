@@ -25,8 +25,6 @@ Router.events.on('routeChangeError', () => NProgress.done());
 
 class Azeet extends App {
   static async getInitialProps({ Component, ctx }) {
-    initAxios();
-
     const { store, req } = ctx;
     let pageProps = {};
 

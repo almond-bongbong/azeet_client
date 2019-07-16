@@ -7,8 +7,7 @@ import hexToRgb from 'lib/hexToRgb';
 const BasicInputStyle = styled.div`
   display: block;
   border-radius: 3px;
-  
-  & > input {
+  > input {
     box-sizing: border-box;
     display: block;    
     width: 100%;
@@ -19,29 +18,34 @@ const BasicInputStyle = styled.div`
     font-size: 13px;
     line-height: ${props => props.size}px;
   }
-  
+  ${props => props.color === 'dark' && css`
+    > input {
+      border: 1px solid #666;
+      color: #eee;
+      &::placeholder {
+        color: #888;
+      }
+    }
+  `}
   ${props => props.theme === 'line' && css`
-    & > input {
+    > input {
       border: 0;
       border-bottom: 1px solid #ddd;
     }
   `}
-  
   ${props => props.status === 'warning' && css`
-    & > input {
+    > input {
       border: 1px solid rgba(${hexToRgb(red)},0.5);
       box-shadow: 0 0 1px 1px rgba(${hexToRgb(red)},0.3);
     }
   `}
-  
   ${props => props.status === 'correct' && css`
-    & > input {
+    > input {
       border: 1px solid rgba(${hexToRgb(green)},0.5);
       box-shadow: 0 0 1px 1px rgba(${hexToRgb(green)},0.3);
     }
   `}
-  
-  & .warning {
+  .warning {
     margin-top: 5px;
     color: ${red};
     font-size: 13px;
@@ -49,9 +53,9 @@ const BasicInputStyle = styled.div`
 `;
 
 const Input = ({
-  type, theme, placeholder, value, size, status, warningMessage, onChange,
+  type, color, theme, placeholder, value, size, status, warningMessage, onChange,
 }) => (
-  <BasicInputStyle size={size} theme={theme} status={status}>
+  <BasicInputStyle size={size} color={color} theme={theme} status={status}>
     <input type={type} placeholder={placeholder} value={value} onChange={onChange} />
     {(status === 'warning' && warningMessage) && <div className="warning">{warningMessage}</div>}
   </BasicInputStyle>
@@ -59,6 +63,7 @@ const Input = ({
 
 Input.propTypes = {
   type: PropTypes.oneOf(['text', 'password']),
+  color: PropTypes.oneOf(['dark']),
   theme: PropTypes.oneOf(['line']),
   placeholder: PropTypes.string,
   value: PropTypes.string,
@@ -70,6 +75,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   type: 'text',
+  color: undefined,
   theme: undefined,
   placeholder: '',
   value: '',

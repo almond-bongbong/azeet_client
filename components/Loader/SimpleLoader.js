@@ -27,6 +27,10 @@ const SimpleLoaderStyle = styled.div`
       border-top-color: rgba(255,255,255,0.9);
       border-bottom-color: rgba(255,255,255,0.9);
     `}
+    ${props => props.theme === 'gray' && css`
+      border-top-color: rgba(100,100,100,0.9);
+      border-bottom-color: rgba(100,100,100,0.9);
+    `}
   }
 `;
 
@@ -37,7 +41,7 @@ const SimpleLoader = ({ theme, size }) => (
 );
 
 SimpleLoader.propTypes = {
-  theme: PropTypes.oneOf(['red', 'blue', 'white']),
+  theme: PropTypes.oneOf(['red', 'blue', 'white', 'gray']),
   size: PropTypes.number,
 };
 

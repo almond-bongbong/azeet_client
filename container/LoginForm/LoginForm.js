@@ -56,7 +56,7 @@ const LoginForm = () => {
       <div className="buttons">
         <button className="btn_kakao" type="button" title="kakao login" onClick={handleKakao}>
           {kakoPending ? (
-            <SimpleLoader size={25} />
+            <SimpleLoader theme="gray" size={25} />
           ) : (
             <img src={kakaoLoginImage} alt="Log in with Kakao" />
           )}

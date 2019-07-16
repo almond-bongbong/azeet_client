@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const LayoutStyle = styled.div`
-  padding: 20px;
+  padding: 30px;
 `;
 
 const Layout = ({ children }) => {

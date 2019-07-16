@@ -42,11 +42,11 @@ const ToastStyle = styled.div`
     overflow: hidden;
     height: 41px;
     padding: 10px 20px;
-    background: rgba(100,181,246,0.8);
+    background: rgba(0,0,10,0.4);
     box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
     border-radius: 2px;
     color: #fff;
-    font-size: 14px;
+    font-size: 13px;
     white-space: nowrap;
     text-align: center;
   }

@@ -5,7 +5,7 @@ export default {
   src: './',
   themeConfig: {
     colors: {
-      primary: '#da032c',
+      primary: '#f9c200',
     },
   },
   menu: [
@@ -25,4 +25,8 @@ export default {
   ],
   wrapper: 'docz/config/DoczWrapper',
   indexHtml: 'docz/config/index.html',
+  modifyBabelRc: babelrc => ({
+    ...babelrc,
+    plugins: [...babelrc.plugins, '@babel/plugin-proposal-optional-chaining'],
+  }),
 };
