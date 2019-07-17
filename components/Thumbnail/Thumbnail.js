@@ -25,11 +25,12 @@ export const ThumbnailStyle = styled.div`
     animation: ${veil} 5s ease infinite;
   }
   ${({ url, background }) => (background && css`
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    height: 100%;
     .image {
       position: absolute;
       top: 0;
@@ -55,6 +56,7 @@ const Thumbnail = ({ url, background }) => {
 
   useEffect(() => {
     const image = new Image();
+    setPending(true);
 
     if (url) {
       image.onload = () => setPending(false);

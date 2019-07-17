@@ -34,7 +34,7 @@ export default createGlobalStyle`
   button span {
       position: relative;
   }
-  body {
+  html, body {
       max-width: 100vw;
       background-color: #2d2d33;
       color: #eee;

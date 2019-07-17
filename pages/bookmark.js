@@ -1,6 +1,6 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import Input from 'components/Input/Input';
+import BookmarkInput from '../container/Bookmark/BookmarkInput';
 
 const BookmarkStyle = styled.div`
   width: 800px;
@@ -8,21 +8,11 @@ const BookmarkStyle = styled.div`
 `;
 
 const Bookmark = () => {
-  const [url, setUrl] = useState();
-  const handleUrl = useCallback(({ target }) => {
-    const { value } = target;
-    setUrl(value);
-  }, []);
+  console.log('bookmark');
 
   return (
     <BookmarkStyle>
-      <Input
-        type="text"
-        color="dark"
-        placeholder="URL을 입력하세요"
-        value={url}
-        onChange={handleUrl}
-      />
+      <BookmarkInput />
     </BookmarkStyle>
   );
 };
