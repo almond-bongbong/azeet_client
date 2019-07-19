@@ -16,7 +16,6 @@ import ImageInput from 'components/ImageInput/ImageInput'
     const Test = () => {
       const [images, setImages] = useState([]);
       const handleImages = (images) => {
-        // console.log(images.length, images);
         setImages(images);
       };
 
@@ -25,7 +24,7 @@ import ImageInput from 'components/ImageInput/ImageInput'
           <ImageInput onChange={handleImages} />
           <br /><br />
           {images.map(({ file, meta }) => (
-            <div key={meta.DateTime}>
+            <div key={file.name}>
               <img src={URL.createObjectURL(file)} style={{ width: '100%' }} />
               <pre>{JSON.stringify(meta, null, 4)}</pre>
             </div>

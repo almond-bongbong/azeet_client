@@ -43,8 +43,7 @@ const ImageInput = ({ id, onChange }) => {
 
         img.toBlob((blob) => {
           const convertedFile = new File([blob], name, { type, lastModified });
-
-          images.push({ file: convertedFile, meta: meta.exif.getAll() });
+          images.push({ file: convertedFile, meta: meta.exif?.getAll() });
           if (images.length === files.length && onChange instanceof Function) onChange(images);
         }, type);
       }, imageLoadOptions);
