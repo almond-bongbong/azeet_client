@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
 
-export const red = '#da032c';
-export const blue = '#64b5f6';
-export const yellow = '#fff700';
+export const red = '#ff4d4f';
+export const blue = '#1890ff';
+export const yellow = '#fadb14';
 export const green = '#438844';
 
 export const hidden = css`

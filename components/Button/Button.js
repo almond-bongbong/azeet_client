@@ -2,9 +2,9 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import SimpleLoader from 'components/Loader/SimpleLoader';
 import styled, { css } from 'styled-components';
-import { red, blue, yellow } from 'style/mixin';
+import { red, blue } from 'style/mixin';
 
-const BasicButtonStyle = styled.div`
+export const ButtonStyle = styled.div`
   display: block;
   
   ${props => props.inline && css`
@@ -73,13 +73,13 @@ const Button = ({
   const loaderSize = useMemo(() => height / 2, [height]);
 
   return (
-    <BasicButtonStyle data-testid="button-wrap" theme={theme} width={width} height={height} inline={inline}>
+    <ButtonStyle data-testid="button-wrap" theme={theme} width={width} height={height} inline={inline}>
       {loading ? (
         <button type="button" title="로딩중"><SimpleLoader theme={loaderTheme} size={loaderSize} /></button>
       ) : (
         <button type="button" onClick={onClick}><span>{text}</span></button>
       )}
-    </BasicButtonStyle>
+    </ButtonStyle>
   );
 };
 

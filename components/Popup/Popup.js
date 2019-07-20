@@ -39,7 +39,7 @@ const PopupStyle = styled.div`
     display: inline-block;
     padding: 20px;
     border-radius: 6px;
-    background-color:#fff;
+    background-color:#444;
     box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.2);
     text-align: center;
     
@@ -94,30 +94,36 @@ const Popup = ({ show, children, onClickDim, keyPressESC }) => {
     if (e.target.classList.contains('mask') && onClickDim) onClickDim();
   }, [onClickDim]);
 
-  return createPortal(
-    <ReactCSSTransitionGroup
-      transitionName="popup"
-      transitionEnterTimeout={300}
-      transitionLeaveTimeout={300}
-    >
-      {show && (
-        <PopupWrapperStyle>
-          <PopupStyle scrolling={hasScroll ? 1 : 0}>
-            <div
-              className="mask"
-              role="presentation"
-              onClick={handleClickDim}
-              title="팝업닫기"
-            >
-              <div className="content" ref={contentRef}>
-                {children}
-              </div>
-            </div>
-          </PopupStyle>
-        </PopupWrapperStyle>
-      )}
-    </ReactCSSTransitionGroup>,
-    popupRef.current,
+  return (
+    <>
+      {
+        createPortal(
+          <ReactCSSTransitionGroup
+            transitionName="popup"
+            transitionEnterTimeout={300}
+            transitionLeaveTimeout={300}
+          >
+            {show && (
+              <PopupWrapperStyle>
+                <PopupStyle scrolling={hasScroll ? 1 : 0}>
+                  <div
+                    className="mask"
+                    role="presentation"
+                    onClick={handleClickDim}
+                    title="팝업닫기"
+                  >
+                    <div className="content" ref={contentRef}>
+                      {children}
+                    </div>
+                  </div>
+                </PopupStyle>
+              </PopupWrapperStyle>
+            )}
+          </ReactCSSTransitionGroup>,
+          popupRef.current,
+        )
+      }
+    </>
   );
 };
 

@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node server.js",
+    "dev": "next",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node server.js",
+    "start": "next start",
     "test": "jest --watchAll --verbose --modulePaths=./",
     "docz:start": "docz dev",
     "docz:build": "docz build",

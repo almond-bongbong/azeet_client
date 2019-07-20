@@ -5,11 +5,12 @@ export default {
   src: './',
   themeConfig: {
     colors: {
-      primary: '#f9c200',
+      primary: '#597ef7',
     },
   },
   menu: [
     'Getting Started',
+    'Color',
     'Button',
     'ButtonGroup',
     'Input',

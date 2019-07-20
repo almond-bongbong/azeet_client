@@ -3,7 +3,8 @@ import BookmarkBg from 'static/images/home/bookmark_bg.jpg';
 import ReviewBg from 'static/images/home/review_bg.jpg';
 import Link from 'components/Link';
 import styled from 'styled-components';
-import Thumbnail from '../components/Thumbnail/Thumbnail';
+import Thumbnail from 'components/Thumbnail/Thumbnail';
+import { alignXY } from 'style/mixin';
 
 const MainMenuStyle = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ const MainMenuStyle = styled.div`
     flex: 1 0 auto;
     display: block;
     position: relative;
-    background-size: cover;
+    height: 80px;
     + a {
       margin-left: 10px;
     }
@@ -28,10 +29,9 @@ const MainMenuStyle = styled.div`
       background-color: rgba(0,0,0,0.65);
     }
     span {
+      ${alignXY};
       display: block;
-      position: relative;
       z-index: 20;
-      padding: 30px 0;
       color: #fdfdfd;
       text-align: center;
     }

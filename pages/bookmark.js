@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import BookmarkInput from '../container/Bookmark/BookmarkInput';
+import { BookmarkInput, BookmarkList } from 'container/Bookmark';
 
 const BookmarkStyle = styled.div`
   width: 800px;
@@ -13,6 +13,7 @@ const Bookmark = () => {
   return (
     <BookmarkStyle>
       <BookmarkInput />
+      <BookmarkList />
     </BookmarkStyle>
   );
 };

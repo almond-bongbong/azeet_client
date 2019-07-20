@@ -94,6 +94,7 @@ export default createGlobalStyle`
   .anticon {
     svg {
       display: block;
+      margin: 0 auto;
     }
   }
   #nprogress {

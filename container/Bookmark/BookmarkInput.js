@@ -6,28 +6,36 @@ import styled from 'styled-components';
 import BookmarkPreview from 'components/Bookmark/BookmarkPreview';
 import Input from 'components/Input/Input';
 import SimpleLoader from 'components/Loader/SimpleLoader';
+import Button, { ButtonStyle } from 'components/Button/Button';
 
 const BookmarkInputStyle = styled.div`
   .preview-area {
+    position: relative;
     margin-top: 30px;
+    ${ButtonStyle} {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+    }
   }
 `;
 
 const BookmarkInput = () => {
   const [url, setUrl] = useState();
   const toast = useToast();
-  const [preview, setPreview] = useState();
-  const [pending, setPending] = useState(false);
+  const [bookmark, setBookmark] = useState(null);
+  const [pendingPreview, setPendingPreview] = useState(false);
+  const [pendingSubmit, setPendingSubmit] = useState(false);
 
   const fetchBookmarkPreview = useCallback(debounce(async (bookmarkUrl) => {
     try {
-      setPending(true);
-      const response = await axios({ url: '/bookmark/preview', params: { url: bookmarkUrl } });
-      setPreview(response);
+      setPendingPreview(true);
+      const response = await axios({ method: 'get', url: '/bookmark/preview', params: { url: bookmarkUrl } });
+      setBookmark(response);
     } catch (e) {
-      toast(e.data.message);
+      toast(e.data?.message);
     } finally {
-      setPending(false);
+      setPendingPreview(false);
     }
   }, 1000), []);
 
@@ -36,6 +44,19 @@ const BookmarkInput = () => {
     setUrl(value);
     fetchBookmarkPreview(value);
   }, [fetchBookmarkPreview]);
+
+  const onSubmit = useCallback(async () => {
+    try {
+      setPendingSubmit(true);
+      await axios({ method: 'post', url: '/bookmark', data: bookmark });
+      toast('등록되었습니다.');
+    } catch (e) {
+      toast(e.data?.message);
+    } finally {
+      setPendingSubmit(false);
+      setBookmark(null);
+    }
+  }, [bookmark, toast]);
 
   return (
     <BookmarkInputStyle>
@@ -47,8 +68,13 @@ const BookmarkInput = () => {
         onChange={handleUrl}
       />
       <div className="preview-area">
-        {pending && <SimpleLoader theme="white" />}
-        {preview && <BookmarkPreview og={preview.og} location={preview.location} />}
+        {pendingPreview && <SimpleLoader theme="white" />}
+        {bookmark && (
+          <>
+            <BookmarkPreview og={bookmark.og} location={bookmark.location} />
+            <Button height={30} theme="blue" text="등록" onClick={onSubmit} loading={pendingSubmit} />
+          </>
+        )}
       </div>
     </BookmarkInputStyle>
   );
