@@ -23,6 +23,14 @@ export const clearfix = css`
   }
 `;
 
+export const multiEllipsis = line => css`
+  display: -webkit-box; 
+  overflow: hidden;
+  -webkit-line-clamp: ${line}; 
+  -webkit-box-orient: vertical; 
+  text-overflow: ellipsis;
+`;
+
 export const alignX = css`
   position: absolute;
   left: 50%;

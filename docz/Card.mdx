@@ -1,0 +1,37 @@
+---
+name: Card
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz'
+import { CardList, Card } from 'components/Card'
+
+# CardList
+
+<Props of={CardList} />
+
+# Card
+
+<Props of={Card} />
+
+## Basic usage
+
+<Playground>
+  <CardList grid={3}>
+    <Card
+      thumbnail="https://placeimg.com/600/300/any"
+      title="PLANETA Itineris tramitem nobilis mensa est."
+      content="A falsis, pars domesticus fluctui. Cum clinias messis, omnes abactores imperium gratis, clemens parmaes. Xiphiass volare! Ollas congregabo in altus cubiculum!"
+    />
+    <Card
+      thumbnail="https://placeimg.com/500/300/any"
+      title="Camerarius quadras ducunt ad index."
+      content="Elevatuss potus, tanquam camerarius luna. Heu, barbatus demissio! Ubi est secundus spatii?"
+    />
+    <Card
+      thumbnail="https://placeimg.com/500/250/any"
+      title="Camerarius quadras ducunt ad index."
+      content="Elevatuss potus, tanquam camerarius luna. Heu, barbatus demissio! Ubi est secundus spatii?"
+    />
+  </CardList>
+</Playground>
