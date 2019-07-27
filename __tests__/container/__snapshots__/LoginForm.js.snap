@@ -3,7 +3,7 @@
 exports[`LoginForm matches snapshot 1`] = `
 <div>
   <div
-    class="LoginForm__LoginFormStyle-sc-13qd6qc-0 jNUouh"
+    class="LoginForm__LoginFormStyle-sc-45bizl-0 ldEKKM"
   >
     <p>
       SNS 계정으로 간편하게 시작해 보세요

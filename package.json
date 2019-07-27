@@ -1,5 +1,5 @@
 {
-  "name": "create-next-example-app",
+  "name": "azeet-client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,7 +23,7 @@
     "immer": "^3.1.2",
     "jest-dom": "^3.4.0",
     "js-cookie": "^2.2.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "next": "^8.1.0",
     "next-redux-wrapper": "^3.0.0-alpha.3",
     "nprogress": "^0.2.0",
@@ -55,6 +55,7 @@
     "eslint-plugin-react": "^7.11.0",
     "eslint-plugin-react-hooks": "^1.6.0",
     "jest": "^24.8.0",
+    "jest-transform-stub": "^2.0.0",
     "style-loader": "^0.23.1"
   },
   "eslintConfig": {

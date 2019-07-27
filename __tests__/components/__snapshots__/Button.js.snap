@@ -3,7 +3,7 @@
 exports[`Button matches snapshot 1`] = `
 <div>
   <div
-    class="Button__BasicButtonStyle-f73wfv-0 jSeGVY"
+    class="Button__ButtonStyle-sc-1myzjdo-0 zBOkH"
     data-testid="button-wrap"
     height="40"
     width="auto"

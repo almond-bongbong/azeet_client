@@ -3,7 +3,7 @@
 exports[`Pagination matches snapshot 1`] = `
 <div>
   <div
-    class="Pagination__PaginationStyle-sc-1a60n7z-0 gSwFao"
+    class="Pagination__PaginationStyle-sc-41obbg-0 hDQLzM"
   >
     <button
       class="arrow"
@@ -59,7 +59,7 @@ exports[`Pagination matches snapshot 1`] = `
       class="numbers"
     >
       <button
-        class="num Pagination__NumberStyle-sc-1a60n7z-1 cxuSWD"
+        class="num Pagination__NumberStyle-sc-41obbg-1 bLHtGe"
         type="button"
       >
         <span>
@@ -67,7 +67,7 @@ exports[`Pagination matches snapshot 1`] = `
         </span>
       </button>
       <button
-        class="num Pagination__NumberStyle-sc-1a60n7z-1 VFjQJ"
+        class="num Pagination__NumberStyle-sc-41obbg-1 cxbKOV"
         type="button"
       >
         <span>
@@ -75,7 +75,7 @@ exports[`Pagination matches snapshot 1`] = `
         </span>
       </button>
       <button
-        class="num Pagination__NumberStyle-sc-1a60n7z-1 VFjQJ"
+        class="num Pagination__NumberStyle-sc-41obbg-1 cxbKOV"
         type="button"
       >
         <span>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Thumbnail, { ThumbnailStyle } from 'components/Thumbnail/Thumbnail';
 import styled from 'styled-components';
-import { multiEllipsis } from '../../style/mixin';
+import { multiEllipsis } from 'style/mixin';
 
 export const CardStyle = styled.div`
   padding: 15px;

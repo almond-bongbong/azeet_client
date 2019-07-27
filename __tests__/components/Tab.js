@@ -34,8 +34,8 @@ describe('Select', () => {
       />,
     );
 
-    expect(getByText('일본').closest('button')).toHaveStyle('color: #64b5f6');
-    expect(getByText('한국').closest('button')).not.toHaveStyle('color: #64b5f6');
+    expect(getByText('일본').closest('button')).toHaveStyle('color: #1890ff');
+    expect(getByText('한국').closest('button')).not.toHaveStyle('color: #1890ff');
   });
 
   it('calls onClick hk', () => {

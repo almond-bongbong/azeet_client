@@ -3,7 +3,7 @@
 exports[`Select matches snapshot 1`] = `
 <div>
   <div
-    class="Tab__TabStyle-sc-1x5bvvv-0 ezcYwx"
+    class="Tab__TabStyle-pfmx17-0 iKWPxz"
   >
     <div
       class="tab-nav"
@@ -42,7 +42,7 @@ exports[`Select matches snapshot 1`] = `
       </button>
     </div>
     <div
-      class="Tab__BarStyle-sc-1x5bvvv-1 fmgpFN"
+      class="Tab__BarStyle-pfmx17-1 fFOGPD"
       width="0"
     />
   </div>

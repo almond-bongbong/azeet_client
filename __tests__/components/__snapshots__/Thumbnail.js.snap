@@ -3,15 +3,11 @@
 exports[`Thumbnail matches snapshot 1`] = `
 <div>
   <div
-    class="Thumbnail__ThumbnailStyle-sc-1jpigpn-0 cefmLY"
+    class="Thumbnail__ThumbnailStyle-sc-10cu7dh-0 ksRDPy"
   >
-    <span
-      class="loading"
-    >
-      loading...
-    </span>
     <img
       alt="thumbnail"
+      class="image"
       src="https://placeimg.com/600/300/any"
     />
   </div>

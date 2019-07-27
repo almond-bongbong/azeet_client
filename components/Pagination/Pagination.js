@@ -1,6 +1,8 @@
-import React, { useMemo } from 'react';
-import range from 'lodash/range';
-import takeWhile from 'lodash/takeWhile';
+import React from 'react';
+import pipe from 'lodash/fp/pipe';
+import range from 'lodash/fp/range';
+import takeWhile from 'lodash/fp/takeWhile';
+import map from 'lodash/fp/map';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { blue } from 'style/mixin';
@@ -59,19 +61,21 @@ const Pagination = ({
   const displayEndPage = displayStartPage + displayPage - 1;
   const prevPage = displayStartPage > 1 ? displayStartPage - 1 : 1;
   const nextPage = displayEndPage < pageCount ? displayEndPage + 1 : pageCount;
-  const numbers = useMemo(() => (
-    takeWhile(range(displayStartPage, displayEndPage + 1), n => n <= pageCount)
-      .map(i => (
-        <NumberStyle
-          key={i}
-          type="button"
-          className="num"
-          active={i === current}
-          onClick={() => onChange(i)}
-        >
-          <span>{i}</span>
-        </NumberStyle>
-      ))), [displayStartPage, displayEndPage, pageCount, current, onChange]);
+  const numbers = pipe([
+    range,
+    takeWhile(n => n <= pageCount),
+    map(i => (
+      <NumberStyle
+        key={i}
+        type="button"
+        className="num"
+        active={i === current}
+        onClick={() => onChange(i)}
+      >
+        <span>{i}</span>
+      </NumberStyle>
+    )),
+  ])(displayStartPage, displayEndPage + 1);
 
   return (
     <PaginationStyle>
