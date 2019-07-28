@@ -9,10 +9,7 @@ describe('Confirm', () => {
   const setup = () => {
     const onResult = jest.fn();
     const utils = renderWithRedux(
-      <>
-        <Button text="click" onClick={() => utils.store.dispatch(confirmActions.confirm('really?')).then(onResult)} />
-        <Confirm />
-      </>,
+      <Button text="click" onClick={() => utils.store.dispatch(confirmActions.confirm('really?')).then(onResult)} />,
     );
     const { getByText } = utils;
     const button = getByText('click');

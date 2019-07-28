@@ -40,7 +40,7 @@ const SimpleLoaderStyle = styled.div`
 
 const SimpleLoader = ({ theme, size }) => (
   <SimpleLoaderStyle theme={theme} size={size}>
-    <div className="circle-loader" />
+    <div className="circle-loader" title="로딩중" />
   </SimpleLoaderStyle>
 );
 

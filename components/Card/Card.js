@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { multiEllipsis } from 'style/mixin';
 
 export const CardStyle = styled.div`
-  padding: 15px;
+  padding: 10px 10px 15px;
   background-color: #2f3338;
   box-shadow: 0 1px 4px 1px rgba(0,0,0,0.3);
   color: #eee;

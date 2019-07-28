@@ -75,7 +75,7 @@ const Button = ({
   return (
     <ButtonStyle data-testid="button-wrap" theme={theme} width={width} height={height} inline={inline}>
       {loading ? (
-        <button type="button" title="로딩중"><SimpleLoader theme={loaderTheme} size={loaderSize} /></button>
+        <button type="button"><SimpleLoader theme={loaderTheme} size={loaderSize} /></button>
       ) : (
         <button type="button" onClick={onClick}><span>{text}</span></button>
       )}

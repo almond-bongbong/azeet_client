@@ -13,10 +13,7 @@ describe('Alert', () => {
 
   it('calls alert and close', async () => {
     const { getByText, queryByText, store } = renderWithRedux(
-      <>
-        <Button text="click" onClick={() => store.dispatch(alertActions.alert('alert'))} />
-        <Alert />
-      </>,
+      <Button text="click" onClick={() => store.dispatch(alertActions.alert('alert'))} />,
     );
 
     const button = getByText('click');

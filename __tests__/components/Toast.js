@@ -13,10 +13,7 @@ describe('Toast', () => {
 
   it('calls toast popup', async () => {
     const { getByText, getAllByText, queryByText, store } = renderWithRedux(
-      <>
-        <Button text="click" onClick={() => store.dispatch(toastActions.toast('toast!'))} />
-        <Toast />
-      </>,
+      <Button text="click" onClick={() => store.dispatch(toastActions.toast('toast!'))} />,
     );
 
     const button = getByText('click');
@@ -29,10 +26,7 @@ describe('Toast', () => {
 
   it('calls toast popup with time', async () => {
     const { getByText, queryByText, store } = renderWithRedux(
-      <>
-        <Button text="click" onClick={() => store.dispatch(toastActions.toast({ message: 'toast!', time: 500 }))} />
-        <Toast />
-      </>,
+      <Button text="click" onClick={() => store.dispatch(toastActions.toast({ message: 'toast!', time: 500 }))} />,
     );
 
     const button = getByText('click');

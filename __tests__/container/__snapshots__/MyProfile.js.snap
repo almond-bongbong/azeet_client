@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyProfile matches snapshot 1`] = `
+<div>
+  <div
+    class="MyProfile__MyProfileStyle-sc-46uf30-0 fpKnAn"
+  >
+    <div
+      class="Thumbnail__ThumbnailStyle-sc-10cu7dh-0 ksRDPy"
+    >
+      <img
+        alt="thumbnail"
+        class="image"
+      />
+    </div>
+    <div
+      class="name"
+    />
+    <div
+      class="Button__ButtonStyle-sc-1myzjdo-0 fdfBKF"
+      data-testid="button-wrap"
+      height="30"
+      width="auto"
+    >
+      <button
+        type="button"
+      >
+        <span>
+          로그아웃
+        </span>
+      </button>
+    </div>
+  </div>
+  <span />
+  <span />
+  <div
+    class="Toast__ToastStyle-sc-18p3u8j-0 jhiKCx"
+  >
+    <span />
+  </div>
+</div>
+`;

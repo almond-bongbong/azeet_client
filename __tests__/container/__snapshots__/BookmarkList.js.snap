@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookmarkList matches snapshot 1`] = `
+<div>
+  <div>
+    <div
+      class="SimpleLoader__SimpleLoaderStyle-sc-1c1yu7o-0 YjQN"
+      size="60"
+    >
+      <div
+        class="circle-loader"
+        title="로딩중"
+      />
+    </div>
+    <span />
+  </div>
+  <span />
+  <span />
+  <div
+    class="Toast__ToastStyle-sc-18p3u8j-0 jhiKCx"
+  >
+    <span />
+  </div>
+</div>
+`;
