@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useToast } from 'hooks';
+import React from 'react';
+import PropTypes from 'prop-types';
 import BookmarkPreview from 'components/Bookmark/BookmarkPreview';
-import SimpleLoader from 'components/Loader/SimpleLoader';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import styled from 'styled-components';
 
@@ -26,41 +24,28 @@ const BookmarkWrapperStyle = styled.div`
   }
 `;
 
-const BookmarkList = () => {
-  const [bookmarks, setBookmarks] = useState([]);
-  const [pendingBookmark, setPendingBookmark] = useState(true);
-  const toast = useToast();
+const BookmarkList = ({ bookmarks }) => (
+  <div>
+    <ReactCSSTransitionGroup
+      transitionName="bookmark"
+      transitionEnterTimeout={300}
+      transitionLeaveTimeout={300}
+    >
+      {bookmarks.map(b => (
+        <BookmarkWrapperStyle key={b.id}>
+          <BookmarkPreview og={b.og} />
+        </BookmarkWrapperStyle>
+      ))}
+    </ReactCSSTransitionGroup>
+  </div>
+);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        setPendingBookmark(true);
-        const response = await axios({ method: 'get', url: '/bookmark' });
-        setBookmarks(response.items);
-      } catch (e) {
-        toast('북마크 목록을 가져오지 못했습니다.');
-      } finally {
-        setPendingBookmark(false);
-      }
-    })();
-  }, [toast]);
+BookmarkList.propTypes = {
+  bookmarks: PropTypes.arrayOf(PropTypes.shape({})),
+};
 
-  return (
-    <div>
-      {pendingBookmark && <SimpleLoader theme="yellow" />}
-      <ReactCSSTransitionGroup
-        transitionName="bookmark"
-        transitionEnterTimeout={300}
-        transitionLeaveTimeout={300}
-      >
-        {bookmarks.map(b => (
-          <BookmarkWrapperStyle key={b.id}>
-            <BookmarkPreview og={b.og} />
-          </BookmarkWrapperStyle>
-        ))}
-      </ReactCSSTransitionGroup>
-    </div>
-  );
+BookmarkList.defaultProps = {
+  bookmarks: [],
 };
 
 export default BookmarkList;

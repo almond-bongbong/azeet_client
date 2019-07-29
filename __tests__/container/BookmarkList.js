@@ -1,7 +1,6 @@
 import React from 'react';
 import renderWithRedux from 'utils/renderWithRedux';
 import BookmarkList from 'container/Bookmark/BookmarkList';
-import { waitForElement } from '@testing-library/react';
 import axios from 'axios';
 import { initAxios } from 'config/configureAxios';
 import MockAdapter from 'axios-mock-adapter';
@@ -22,10 +21,9 @@ describe('BookmarkList', () => {
   });
 
   it('get bookmark list', async () => {
-    const { getAllByText, getByTitle } = renderWithRedux(<BookmarkList />);
-    await waitForElement(() => getByTitle('로딩중'));
-    const bookmarks = await waitForElement(() => getAllByText('제목'));
-
+    const { findAllByText, findByTitle } = renderWithRedux(<BookmarkList />);
+    expect(await findByTitle('로딩중')).not.toBeNull();
+    const bookmarks = await findAllByText('제목');
     expect(bookmarks).toHaveLength(2);
   });
 });

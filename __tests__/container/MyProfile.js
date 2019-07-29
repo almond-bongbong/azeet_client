@@ -14,7 +14,7 @@ describe('MyProfile', () => {
     expect(utils.container).toMatchSnapshot();
   });
 
-  it('login form', async () => {
+  it('my profile container', async () => {
     const { getByText } = renderWithRedux(<MyProfile user={mockUser} />);
     getByText('cmlee');
     const btnLogout = getByText('로그아웃');
