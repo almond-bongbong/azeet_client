@@ -53,8 +53,8 @@ const Header = () => {
       </h1>
       <nav>
         {user ? (
-          <Link href="my">
-            <a href="my"><Thumbnail url={user.thumbnailImage} /></a>
+          <Link href="/azeet/[id]" as={`/azeet/${user.id}`}>
+            <a href={`/azeet/${user.id}`}><Thumbnail url={user.thumbnailImage} /></a>
           </Link>
         ) : (
           <Link href="/login"><a href="/login"><Icon type="key" /></a></Link>

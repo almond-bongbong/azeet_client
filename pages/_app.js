@@ -23,7 +23,7 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-class Azeet extends App {
+class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     const { store, req } = ctx;
     let pageProps = {};
@@ -82,4 +82,4 @@ class Azeet extends App {
   }
 }
 
-export default withRedux(configStore)(Azeet);
+export default withRedux(configStore)(MyApp);
