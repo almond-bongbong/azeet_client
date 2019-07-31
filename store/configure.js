@@ -10,13 +10,9 @@ const configure = (initialState = {}) => {
   const store = createStore(
     modules,
     initialState,
-    composeEnhancers(
-      applyMiddleware(ReduxThunk, sagaMiddleware),
-    ),
+    composeEnhancers(applyMiddleware(ReduxThunk, sagaMiddleware)),
   );
-
-  sagaMiddleware.run(rootSaga);
-
+  store.sagaTask = sagaMiddleware.run(rootSaga);
   return store;
 };
 

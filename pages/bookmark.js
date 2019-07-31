@@ -1,32 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { BookmarkInput, BookmarkList } from 'container/Bookmark';
-import axios from 'axios';
+import { bookmarkActions } from 'store/modules/bookmark';
 
 const BookmarkStyle = styled.div`
   width: 800px;
   margin: 0 auto;
 `;
 
-const Bookmark = ({ bookmarks }) => (
+const Bookmark = () => (
   <BookmarkStyle>
     <BookmarkInput />
-    <BookmarkList bookmarks={bookmarks} />
+    <BookmarkList />
   </BookmarkStyle>
 );
 
-Bookmark.getInitialProps = async () => {
-  const { items } = await axios({ method: 'get', url: '/bookmark' });
-  return { isPrivate: true, bookmarks: items };
-};
-
-Bookmark.propTypes = {
-  bookmarks: PropTypes.arrayOf(PropTypes.shape({})),
-};
-
-Bookmark.defaultProps = {
-  bookmarks: [],
+Bookmark.getInitialProps = async (ctx) => {
+  const { store } = ctx;
+  store.dispatch(bookmarkActions.fetchList());
+  return { isPrivate: true };
 };
 
 export default Bookmark;

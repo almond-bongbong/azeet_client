@@ -14,6 +14,7 @@ import { cookieParser } from 'lib/cookie';
 import { authActions } from 'store/modules/auth';
 import { alertActions } from 'store/modules/alert';
 import { initAxios, setAuthorization } from 'config/configureAxios';
+import withReduxSaga from 'next-redux-saga';
 import Confirm from 'components/Confirm';
 import Alert from 'components/Alert';
 import Layout from 'components/Layout/Layout';
@@ -82,4 +83,4 @@ class MyApp extends App {
   }
 }
 
-export default withRedux(configStore)(MyApp);
+export default withRedux(configStore)(withReduxSaga(MyApp));

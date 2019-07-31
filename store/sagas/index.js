@@ -3,6 +3,7 @@ import alert from './alert';
 import confirm from './confirm';
 import toast from './toast';
 import auth from './auth';
+import bookmark from './bookmark';
 
 export default function* rootSaga() {
   yield all([
@@ -10,5 +11,6 @@ export default function* rootSaga() {
     fork(confirm),
     fork(toast),
     fork(auth),
+    fork(bookmark),
   ]);
 }

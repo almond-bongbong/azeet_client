@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { red, green } from 'style/mixin';
+import { red, green, alignY } from 'style/mixin';
 import hexToRgb from 'lib/hexToRgb';
+import SimpleLoader, { SimpleLoaderStyle } from 'components/Loader/SimpleLoader';
 
 const BasicInputStyle = styled.div`
   display: block;
+  position: relative;
   border-radius: 3px;
   > input {
     box-sizing: border-box;
@@ -45,6 +47,10 @@ const BasicInputStyle = styled.div`
       box-shadow: 0 0 1px 1px rgba(${hexToRgb(green)},0.3);
     }
   `}
+  ${SimpleLoaderStyle} {
+    ${alignY};
+    right: 15px;
+  }
   .warning {
     margin-top: 5px;
     color: ${red};
@@ -53,10 +59,11 @@ const BasicInputStyle = styled.div`
 `;
 
 const Input = ({
-  type, color, theme, placeholder, value, size, status, warningMessage, onChange,
+  type, color, theme, placeholder, value, size, status, warningMessage, loading, onChange,
 }) => (
   <BasicInputStyle size={size} color={color} theme={theme} status={status}>
     <input type={type} placeholder={placeholder} value={value} onChange={onChange} />
+    {loading && <SimpleLoader theme="blue" size={18} />}
     {(status === 'warning' && warningMessage) && <div className="warning">{warningMessage}</div>}
   </BasicInputStyle>
 );
@@ -70,6 +77,7 @@ Input.propTypes = {
   size: PropTypes.oneOf([30, 40, 50]),
   status: PropTypes.oneOf(['warning', 'correct']),
   warningMessage: PropTypes.string,
+  loading: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
 };
 
@@ -81,6 +89,7 @@ Input.defaultProps = {
   value: '',
   size: 40,
   status: undefined,
+  loading: false,
   warningMessage: '',
 };
 

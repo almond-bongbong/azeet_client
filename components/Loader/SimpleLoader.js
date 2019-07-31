@@ -5,7 +5,7 @@ import { blue, red, yellow } from 'style/mixin';
 import hexToRgb from 'lib/hexToRgb';
 import { rotation } from 'style/animations';
 
-const SimpleLoaderStyle = styled.div`
+export const SimpleLoaderStyle = styled.div`
   position: relative;
   .circle-loader {
     width: ${props => props.size}px;

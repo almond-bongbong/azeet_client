@@ -5,7 +5,6 @@ import axios from 'axios';
 import styled from 'styled-components';
 import BookmarkPreview from 'components/Bookmark/BookmarkPreview';
 import Input from 'components/Input/Input';
-import SimpleLoader from 'components/Loader/SimpleLoader';
 import Button, { ButtonStyle } from 'components/Button/Button';
 
 const BookmarkInputStyle = styled.div`
@@ -65,10 +64,10 @@ const BookmarkInput = () => {
         color="dark"
         placeholder="URL을 입력하세요"
         value={url}
+        loading={pendingPreview}
         onChange={handleUrl}
       />
       <div className="preview-area">
-        {pendingPreview && <SimpleLoader theme="white" />}
         {bookmark && (
           <>
             <BookmarkPreview og={bookmark.og} location={bookmark.location} />
