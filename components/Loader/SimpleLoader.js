@@ -11,7 +11,7 @@ export const SimpleLoaderStyle = styled.div`
     width: ${props => props.size}px;
     height: ${props => props.size}px;
     margin: 0 auto;
-    border: 2px solid transparent;
+    border: ${props => (props.size > 20 ? 2 : 1)}px solid transparent;
     border-radius: 50%;
     color: ${red};
     animation: ${rotation} .8s ease infinite;

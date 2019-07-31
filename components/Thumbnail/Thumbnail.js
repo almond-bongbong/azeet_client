@@ -19,7 +19,7 @@ export const ThumbnailStyle = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(-45deg, #ee7752, #e7ab34, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, #ee7752, #e7ab34, #d5bf59, #d5c043);
     background-size: 400% 400%;
     transition: opacity .4s;
     animation: ${veil} 5s ease infinite;
@@ -62,7 +62,7 @@ const Thumbnail = ({ url, background }) => {
   }, [url]);
 
   return (
-    <ThumbnailStyle pending={pending ? 1 : 0} url={url} background={background ? 1 : 0}>
+    <ThumbnailStyle pending={pending} url={url} background={background ? 1 : 0}>
       {background ? (
         <div className="image" />
       ) : (
