@@ -12,9 +12,6 @@ const Login = () => (
   </LoginPageStyle>
 );
 
-Login.getInitialProps = () => {
-  console.log('call getInitialProps');
-  return { onlyAnonymous: true };
-};
+Login.getInitialProps = () => ({ onlyAnonymous: true });
 
 export default Login;

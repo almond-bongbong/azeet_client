@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 
 const Azeet = () => {
   const router = useRouter();
-  console.log(router);
   const { id } = router.query;
   return (
     <div>

@@ -5,6 +5,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import styled from 'styled-components';
 
 const BookmarkWrapperStyle = styled.div`
+  margin-top: 30px;
   & + & {
     margin-top: 15px;
   }

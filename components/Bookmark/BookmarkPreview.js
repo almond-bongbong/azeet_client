@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Thumbnail from 'components/Thumbnail/Thumbnail';
 
-const BookmarkPreviewStyle = styled.div`
+const BookmarkPreviewStyle = styled.a`
   display: table;
   table-layout: fixed;
   width: 100%;
@@ -32,7 +32,7 @@ const BookmarkPreviewStyle = styled.div`
 `;
 
 const BookmarkPreview = ({ og }) => (
-  <BookmarkPreviewStyle>
+  <BookmarkPreviewStyle target="_blank" href={og.url}>
     <div className="thumbnail">
       <Thumbnail url={og.image} background />
     </div>
@@ -45,6 +45,7 @@ const BookmarkPreview = ({ og }) => (
 
 BookmarkPreview.propTypes = {
   og: PropTypes.shape({
+    url: PropTypes.string,
     title: PropTypes.string,
     image: PropTypes.string,
     description: PropTypes.string,
