@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import Head from 'next/head';
-import App, { Container } from 'next/app';
+import { Container } from 'next/app';
 import NProgress from 'nprogress';
 import Router from 'next/router';
 import GlobalStyle from 'style/GlobalStyle';
@@ -24,63 +25,70 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    const { store, req } = ctx;
-    let pageProps = {};
+// TODO start 아이콘으로 claps 기능 구현
+// TODO 퍼가기, 저장하기 기능 구현
 
-    if (Component.getInitialProps) { pageProps = await Component.getInitialProps(ctx); }
-    if (req) {
-      const { authorization } = cookieParser(req.headers.cookie);
-      if (authorization) {
-        try {
-          setAuthorization(authorization);
-          const user = await auth();
-          store.dispatch(authActions.setUser(user));
-        } catch (e) {
-          if (e.status === 500) store.dispatch(alertActions.alert('서버에 문제가 발생했습니다.'));
-        }
+initAxios();
+
+const MyApp = ({ Component, store, pageProps }) => (
+  <Container>
+    <Head>
+      <title>azeet</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="theme-color" content="#ffffff" />
+      <link rel="shortcut icon" href="/static/favicon.ico" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" />
+      <script src="//developers.kakao.com/sdk/js/kakao.min.js" />
+    </Head>
+
+    <Provider store={store}>
+      <GlobalStyle />
+      <Header />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+      <Confirm />
+      <Alert />
+      <Toast />
+    </Provider>
+  </Container>
+);
+
+MyApp.getInitialProps = async ({ Component, ctx }) => {
+  const { store, req, isServer } = ctx;
+  let pageProps = {};
+
+  if (Component.getInitialProps) { pageProps = await Component.getInitialProps(ctx); }
+  if (isServer) {
+    const { authorization } = cookieParser(req.headers.cookie);
+    if (authorization) {
+      try {
+        setAuthorization(authorization);
+        const user = await auth();
+        store.dispatch(authActions.setUser(user));
+      } catch (e) {
+        if (e.status === 500) store.dispatch(alertActions.alert('서버에 문제가 발생했습니다.'));
       }
     }
-
-    const { user } = store.getState().auth;
-    if (pageProps.onlyAnonymous && user) makeRedirect(ctx, '/', false);
-    if (pageProps.isPrivate && !user) makeRedirect(ctx, '/login');
-
-    return { pageProps };
   }
 
-  componentDidMount() {
-    initAxios();
-  }
+  const { user } = store.getState().auth;
+  if (pageProps.onlyAnonymous && user) makeRedirect(ctx, '/', false);
+  if (pageProps.isPrivate && !user) makeRedirect(ctx, '/login');
 
-  render() {
-    const { Component, pageProps, store } = this.props;
+  return { pageProps };
+};
 
-    return (
-      <Container>
-        <Head>
-          <title>azeet</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-          <meta name="theme-color" content="#ffffff" />
-          <link rel="shortcut icon" href="/static/favicon.ico" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" />
-          <script src="//developers.kakao.com/sdk/js/kakao.min.js" />
-        </Head>
+MyApp.propTypes = {
+  Component: PropTypes.elementType,
+  store: PropTypes.shape({}),
+  pageProps: PropTypes.shape({}),
+};
 
-        <Provider store={store}>
-          <GlobalStyle />
-          <Header />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-          <Confirm />
-          <Alert />
-          <Toast />
-        </Provider>
-      </Container>
-    );
-  }
-}
+MyApp.defaultProps = {
+  Component: undefined,
+  store: undefined,
+  pageProps: undefined,
+};
 
 export default withRedux(configStore)(withReduxSaga(MyApp));
