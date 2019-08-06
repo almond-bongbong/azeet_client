@@ -56,9 +56,6 @@ const MyApp = ({ Component, store, pageProps }) => (
 
 MyApp.getInitialProps = async ({ Component, ctx }) => {
   const { store, req, isServer } = ctx;
-  let pageProps = {};
-
-  if (Component.getInitialProps) { pageProps = await Component.getInitialProps(ctx); }
   if (isServer) {
     const { authorization } = cookieParser(req.headers.cookie);
     if (authorization) {
@@ -71,8 +68,9 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
       }
     }
   }
-
   const { user } = store.getState().auth;
+  let pageProps = {};
+  if (Component.getInitialProps) { pageProps = await Component.getInitialProps(ctx); }
   if (pageProps.onlyAnonymous && user) makeRedirect(ctx, '/', false);
   if (pageProps.isPrivate && !user) makeRedirect(ctx, '/login');
 
