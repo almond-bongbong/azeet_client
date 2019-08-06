@@ -7,8 +7,7 @@ import { setAuthorization } from 'config/configureAxios';
 import { toastActions } from 'store/modules/toast';
 import { pendingActions } from 'store/modules/pending';
 
-// 7 days
-const TOKEN_EXPIRES = 7;
+const TOKEN_EXPIRES_DAYS = 7;
 const AUTH_COOKIE = 'authorization';
 
 function* fetchAuth({ type }) {
@@ -31,7 +30,7 @@ function* loginWithKakao({ type, payload }) {
     yield put(pendingActions.pending(type));
     const res = yield call(authKakao, payload);
 
-    Cookie.set(AUTH_COOKIE, res.accessToken, { expires: TOKEN_EXPIRES });
+    Cookie.set(AUTH_COOKIE, res.accessToken, { expires: TOKEN_EXPIRES_DAYS });
     setAuthorization();
 
     const user = yield call(auth);

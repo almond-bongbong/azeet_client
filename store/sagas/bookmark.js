@@ -10,7 +10,7 @@ function* fetchList({ type }) {
     const response = yield call(getBookmarks);
     yield put(bookmarkActions.setList(response));
   } catch (e) {
-    yield put(toastActions.toast('문제가 발생했습니다'));
+    if (e.response) yield put(toastActions.toast('문제가 발생했습니다'));
   } finally {
     yield put(pendingActions.finally(type));
   }
