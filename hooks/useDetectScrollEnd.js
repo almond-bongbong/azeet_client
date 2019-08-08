@@ -5,8 +5,9 @@ const useDetectScrollEnd = (endPercent = 0.9) => {
   const scrollEnded = useRef(false);
   const [isScrollEnd, setIsScrollEnd] = useState(false);
   const handleScroll = useCallback(throttle(() => {
-    const { scrollY, innerHeight } = window;
-    const scrollPercent = (scrollY + innerHeight) / document.body.scrollHeight;
+    const { scrollY } = window;
+    const { clientHeight, scrollHeight } = document.documentElement;
+    const scrollPercent = (scrollY + clientHeight) / scrollHeight;
 
     if (scrollPercent >= endPercent && !scrollEnded.current) {
       scrollEnded.current = true;
