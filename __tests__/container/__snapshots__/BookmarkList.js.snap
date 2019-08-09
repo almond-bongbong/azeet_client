@@ -3,15 +3,6 @@
 exports[`BookmarkList matches snapshot 1`] = `
 <div>
   <div>
-    <div
-      class="SimpleLoader__SimpleLoaderStyle-sc-1c1yu7o-0 YjQN"
-      size="60"
-    >
-      <div
-        class="circle-loader"
-        title="로딩중"
-      />
-    </div>
     <span />
   </div>
   <span />

@@ -21,8 +21,7 @@ describe('BookmarkList', () => {
   });
 
   it('get bookmark list', async () => {
-    const { findAllByText, findByTitle } = renderWithRedux(<BookmarkList />);
-    expect(await findByTitle('로딩중')).not.toBeNull();
+    const { findAllByText } = renderWithRedux(<BookmarkList />);
     const bookmarks = await findAllByText('제목');
     expect(bookmarks).toHaveLength(2);
   });
