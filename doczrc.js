@@ -16,6 +16,10 @@ export default {
     'Input',
     'OptionsGroup',
     {
+      name: 'Feedback',
+      menu: ['alert', 'confirm'],
+    },
+    {
       name: 'Checkbox',
       menu: ['BasicCheckbox', 'FancyCheckbox'],
     },

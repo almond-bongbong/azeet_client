@@ -17,7 +17,7 @@ import { alertActions } from 'store/modules/alert';
 import { initAxios, setAuthorization } from 'config/configureAxios';
 import withReduxSaga from 'next-redux-saga';
 import Confirm from 'components/Confirm';
-import Alert from 'components/Alert';
+import Alert from 'components/Feedback';
 import Layout from 'components/Layout/Layout';
 import { makeRedirect } from 'lib/route';
 

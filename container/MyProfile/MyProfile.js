@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Image, { ThumbnailStyle } from 'components/Thumbnail/Thumbnail';
 import Button from 'components/Button/Button';
 import { useDispatch } from 'react-redux';
-import { confirmActions } from 'store/modules/confirm';
+import { confirm } from 'components/Feedback';
 import { authActions } from 'store/modules/auth';
 
 export const MyProfileStyle = styled.div`
@@ -31,7 +31,7 @@ const MyProfile = ({ user }) => {
   const { nickname, profileImage } = user;
   const dispatch = useDispatch();
   const handleLogout = useCallback(async () => {
-    if (await dispatch(confirmActions.confirm('정말 로그아웃 하시겠습니까?'))) {
+    if (await confirm('정말 로그아웃 하시겠습니까?')) {
       dispatch(authActions.logout());
     }
   }, [dispatch]);

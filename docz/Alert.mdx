@@ -1,40 +1,31 @@
 ---
-name: Alert
+name: alert
+menu: Feedback
 ---
 
 import { Playground } from 'docz'
 import { useDispatch } from 'react-redux'
-import { alertActions } from 'store/modules/alert'
+import { alert } from 'components/Feedback'
 import Button from 'components/Button/Button'
 
-# Alert
-
-- 최상위 컴포넌트 내에 `<Alert />` 컴포넌트가 존재해야 합니다.
-```
-<div className="App">
-  <Alert />
-</div>
-
-```
+# alert
 
 ## Basic usage
 
 - 아래와 같은 형식으로 alert 팝업을 호출 할 수 있습니다.
 ```
-dispatch(alertActions.alert('안녕하세요!!'))
+const openAlert = () => alert('안녕하세요')
 ```
 
-- alert action 은 `Promise` 객체를 반환 하므로 팝업이 종료되는 시점을 확인할 수 있습니다.
+- alert는 `Promise` 객체를 반환 하므로 팝업이 종료되는 시점을 확인할 수 있습니다.
 ```
-dispatch(alertActions.alert('안녕하세요!!')).then(() => console.log('close'))
+const openAlert = () => alert('하이').then(() => console.log('close'))
 ```
 
 <Playground>
   {() => {
     const Test = () => {
-      const dispatch = useDispatch();
-      const openAlert = () => dispatch(alertActions.alert('안녕하세요!!')).then(() => console.log('close'));
-
+      const openAlert = () => alert('하이').then(() => console.log('close'))
       return <Button onClick={openAlert}>alert!</Button>
     }
 

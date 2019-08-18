@@ -41,12 +41,5 @@ exports[`Header matches snapshot 1`] = `
       </a>
     </nav>
   </div>
-  <span />
-  <span />
-  <div
-    class="Toast__ToastStyle-sc-18p3u8j-0 jhiKCx"
-  >
-    <span />
-  </div>
 </div>
 `;

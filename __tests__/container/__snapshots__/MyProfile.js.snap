@@ -31,12 +31,5 @@ exports[`MyProfile matches snapshot 1`] = `
       </button>
     </div>
   </div>
-  <span />
-  <span />
-  <div
-    class="Toast__ToastStyle-sc-18p3u8j-0 jhiKCx"
-  >
-    <span />
-  </div>
 </div>
 `;

@@ -1,19 +1,12 @@
 import React from 'react';
-import { fireEvent, wait } from '@testing-library/react';
-import renderWithRedux from 'utils/renderWithRedux';
-import Toast from 'components/Toast';
+import { render, fireEvent, wait } from '@testing-library/react';
+import { toast } from 'components/Feedback';
 import Button from 'components/Button/Button';
-import { toastActions } from 'store/modules/toast';
 
 describe('Toast', () => {
-  it('matches snapshot', () => {
-    const utils = renderWithRedux(<Toast />);
-    expect(utils.container).toMatchSnapshot();
-  });
-
   it('calls toast popup', async () => {
-    const { getByText, getAllByText, queryByText, store } = renderWithRedux(
-      <Button text="click" onClick={() => store.dispatch(toastActions.toast('toast!'))} />,
+    const { getByText, getAllByText, queryByText } = render(
+      <Button text="click" onClick={() => toast('toast!')} />,
     );
 
     const button = getByText('click');
@@ -25,8 +18,8 @@ describe('Toast', () => {
   });
 
   it('calls toast popup with time', async () => {
-    const { getByText, queryByText, store } = renderWithRedux(
-      <Button text="click" onClick={() => store.dispatch(toastActions.toast({ message: 'toast!', time: 500 }))} />,
+    const { getByText, queryByText } = render(
+      <Button text="click" onClick={() => toast('toast!', 500)} />,
     );
 
     const button = getByText('click');

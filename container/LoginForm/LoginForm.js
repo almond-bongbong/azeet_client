@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import kakaoLoginImage from 'static/images/kakao_login_btn.png';
 import { alignXY } from 'style/mixin';
 import { useKakao } from 'hooks';
-import { toastActions } from 'store/modules/toast';
+import { toast } from 'components/Feedback';
 import { pendingActions } from 'store/modules/pending';
 import { authActions, authTypes } from 'store/modules/auth';
 import SimpleLoader from 'components/Loader/SimpleLoader';
@@ -44,7 +44,7 @@ const LoginForm = () => {
     Kakao.Auth.login({
       success: loginKakao,
       fail: () => {
-        dispatch(toastActions.toast('문제가 발생했습니다'));
+        toast('문제가 발생했습니다');
         dispatch(pendingActions.finally(authTypes.LOGIN_WITH_KAKAO));
       },
     });

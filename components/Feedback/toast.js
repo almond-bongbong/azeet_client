@@ -1,7 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactDOM from 'react-dom';
+import { addRootElement, createElement } from 'lib/generateElement';
 import styled from 'styled-components';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+const toastContainer = document.getElementById('toast_container');
+if (!toastContainer) addRootElement(createElement('toast_container'));
+const toastComponentList = [];
 
 const ToastStyle = styled.div`
   position: fixed;
@@ -52,24 +57,41 @@ const ToastStyle = styled.div`
   }
 `;
 
-const Toast = () => {
-  const toast = useSelector(state => state.toast);
-
-  return (
+const renderDOM = () => {
+  const container = document.getElementById('toast_container');
+  ReactDOM.render(
     <ToastStyle>
       <ReactCSSTransitionGroup
         transitionName="toast"
         transitionEnterTimeout={300}
         transitionLeaveTimeout={300}
       >
-        {toast.map(t => (
-          <div key={t.id} className="wrap">
-            <div className="message">{t.message}</div>
-          </div>
-        ))}
+        {toastComponentList.map(t => t.component)}
       </ReactCSSTransitionGroup>
-    </ToastStyle>
+    </ToastStyle>,
+    container,
   );
 };
 
-export default Toast;
+const toast = (message, time = 3000) => {
+  renderDOM();
+
+  const id = Date.now();
+  toastComponentList.push({
+    id,
+    component: (
+      <div key={id} className="wrap">
+        <div className="message">{message}</div>
+      </div>
+    ),
+  });
+
+  renderDOM();
+  setTimeout(() => {
+    const index = toastComponentList.findIndex(t => t.id === id);
+    toastComponentList.splice(index, 1);
+    renderDOM();
+  }, time);
+};
+
+export default toast;

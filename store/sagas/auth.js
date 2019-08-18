@@ -4,7 +4,7 @@ import { authActions, authTypes } from 'store/modules/auth';
 import { auth, authKakao } from 'api/auth';
 import Cookie from 'js-cookie';
 import { setAuthorization } from 'config/configureAxios';
-import { toastActions } from 'store/modules/toast';
+import { toast } from 'components/Feedback';
 import { pendingActions } from 'store/modules/pending';
 
 const TOKEN_EXPIRES_DAYS = 7;
@@ -35,11 +35,11 @@ function* loginWithKakao({ type, payload }) {
 
     const user = yield call(auth);
     const { next } = Router.query;
-    yield put(toastActions.toast('로그인 되었습니다'));
+    yield call(toast, '로그인 되었습니다');
     yield put(authActions.setUser(user));
     yield call(Router.replace, next || '/');
   } catch (e) {
-    yield put(toastActions.toast('문제가 발생했습니다'));
+    yield call(toast, '문제가 발생했습니다');
   } finally {
     yield put(pendingActions.finally(type));
   }
