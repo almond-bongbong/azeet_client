@@ -1,6 +1,6 @@
 /* eslint-disable */
 const path = require('path');
-const coreJs = require('core-js');
+require('core-js');
 
 module.exports = {
   webpack: (config) => {
@@ -15,8 +15,8 @@ module.exports = {
             name: '[path][name].[ext]?[hash]',
             emitFile: false,
             publicPath: '/',
-          }
-        }
+          },
+        },
       ],
     });
 

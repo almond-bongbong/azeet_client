@@ -9,15 +9,12 @@ import Router from 'next/router';
 import GlobalStyle from 'style/GlobalStyle';
 import Header from 'components/Header/Header';
 import configStore from 'store/configure';
-import Toast from 'components/Toast';
 import { auth } from 'api/auth';
 import { cookieParser } from 'lib/cookie';
 import { authActions } from 'store/modules/auth';
-import { alertActions } from 'store/modules/alert';
 import { initAxios, setAuthorization } from 'config/configureAxios';
 import withReduxSaga from 'next-redux-saga';
-import Confirm from 'components/Confirm';
-import Alert from 'components/Feedback';
+import Alert, { alert } from 'components/Feedback';
 import Layout from 'components/Layout/Layout';
 import { makeRedirect } from 'lib/route';
 
@@ -47,9 +44,7 @@ const MyApp = ({ Component, store, pageProps }) => (
       <Layout>
         <Component {...pageProps} />
       </Layout>
-      <Confirm />
       <Alert />
-      <Toast />
     </Provider>
   </Container>
 );
@@ -64,7 +59,7 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
         const user = await auth();
         store.dispatch(authActions.setUser(user));
       } catch (e) {
-        if (e.status === 500) store.dispatch(alertActions.alert('서버에 문제가 발생했습니다.'));
+        if (e.status === 500) alert('서버에 문제가 발생했습니다.');
       }
     }
   }
