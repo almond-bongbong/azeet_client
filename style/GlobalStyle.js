@@ -1,7 +1,7 @@
 import { createGlobalStyle, keyframes } from 'styled-components';
 import { yellow } from 'style/mixin';
 
-const fontFamily = 'Noto Serif KR, Apple SD Gothic Neo, Malgun Gothic, sans-serif;';
+const fontFamily = 'Apple SD Gothic Neo, Malgun Gothic, sans-serif;';
 const nprogressSpinner = keyframes`
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

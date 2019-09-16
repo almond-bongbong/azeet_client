@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useCallback, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import styled, { css } from 'styled-components';
@@ -59,19 +59,17 @@ const popupContainer = document.getElementById('popup_container');
 if (!popupContainer) addRootElement(createElement('popup_container'));
 
 const Popup = ({ show, children, onClickDim, keyPressESC }) => {
-  const popupRef = useRef(document.createElement('div'));
+  const popupEl = useMemo(() => document.createElement('div'), []);
   const contentRef = useRef(null);
   const [hasScroll, setHasScroll] = useState(false);
 
   useEffect(() => {
     const popupParent = document.getElementById('popup_container');
-    const popupElement = popupRef.current;
-    popupParent.appendChild(popupElement);
-
+    popupParent.appendChild(popupEl);
     return () => {
-      popupElement.remove();
+      popupParent.removeChild(popupEl);
     };
-  }, []);
+  }, [popupEl]);
 
   useEffect(() => {
     const handleKeyPress = e => e.keyCode === 27 && keyPressESC();
@@ -120,7 +118,7 @@ const Popup = ({ show, children, onClickDim, keyPressESC }) => {
               </PopupWrapperStyle>
             )}
           </ReactCSSTransitionGroup>,
-          popupRef.current,
+          popupEl,
         )
       }
     </>
