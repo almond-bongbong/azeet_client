@@ -14,7 +14,7 @@
   "dependencies": {
     "@testing-library/react": "^8.0.1",
     "antd": "^3.20.1",
-    "axios": "^1.6.0",
+    "axios": "^1.7.4",
     "babel-plugin-styled-components": "^1.10.2",
     "blueimp-load-image": "^2.22.0",
     "core-js": "^3.1.4",
