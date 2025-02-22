@@ -14,7 +14,7 @@
   "dependencies": {
     "@testing-library/react": "^8.0.1",
     "antd": "^3.20.1",
-    "axios": "^1.6.0",
+    "axios": "^1.7.4",
     "babel-plugin-styled-components": "^1.10.2",
     "blueimp-load-image": "^2.22.0",
     "core-js": "^3.1.4",
@@ -46,7 +46,7 @@
     "axios-mock-adapter": "^1.16.0",
     "babel-eslint": "^10.0.2",
     "cross-env": "^5.2.0",
-    "css-loader": "^2.1.0",
+    "css-loader": "^7.1.2",
     "docz": "latest",
     "docz-theme-default": "^1.2.0",
     "eslint": "5.3.0",
